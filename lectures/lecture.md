@@ -39,8 +39,6 @@ Pulling changes from a remote repository
 
 # Week 2: HTML Basics and Emmet Shortcuts
 
-
-
 # Emmet in Visual Studio Code
 
 Emmet is a powerful tool that provides shortcuts and abbreviations for quickly generating HTML and CSS code in various code editors, including Visual Studio Code (VSCode). It can significantly speed up your coding workflow by reducing manual typing. Here are some commonly used Emmet shortcuts:
@@ -51,6 +49,8 @@ Emmet is a powerful tool that provides shortcuts and abbreviations for quickly g
 - `ul>li*3`: Creates an unordered list with three list items.
 - `link:css`: Creates a CSS link tag.
 - `img`: Creates an `<img>` element.
+- `+` (Adjacent Sibling Selector): The `+` symbol is used to create elements that are placed next to each other as adjacent siblings.
+- `>` (Child Selector): The `>` symbol is used to create elements as direct children of another element.
 - `a`: Creates an anchor `<a>` element.
 - `table>tr*3>td*3`: Creates a table with three rows and three columns.
 
