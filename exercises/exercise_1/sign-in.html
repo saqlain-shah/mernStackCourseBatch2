@@ -1,0 +1,40 @@
+<!-- sign-in.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h2>Sign In</h2>
+      <form action="sign-in.html" method="POST">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn">Sign In</button>
+      </form>
+      <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
+    </div>
+  </body>
+</html>
