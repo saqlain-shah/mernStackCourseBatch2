@@ -37,7 +37,7 @@ Merging branches
 Pushing changes to a remote repository
 Pulling changes from a remote repository
 
-# Week 3: HTML Basics and Emmet Shortcuts
+# Week 2: HTML Basics and Emmet Shortcuts
 
 
 
