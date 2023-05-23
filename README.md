@@ -7,8 +7,7 @@ Welcome to the **MERN Stack Course** repository presented by Aufklarung and Rino
 The repository contains the following branches:
 
 - `main`: The main branch that contains the stable and tested versions of the course materials. Trainees should refer to this branch for the official course content.
-- `development`: The development branch where trainees can collaborate and push their daily practices, experiments, and other related code. It is the branch for ongoing work and discussions.
-- `feature-branches`: Additional branches that can be created for specific features or topics. Trainees can create their own branches to work on individual exercises or tasks and merge them into the `development` branch when ready.
+- `assigments`: The development branch where trainees can collaborate and push their daily practices, experiments, and other related code. It is the branch for ongoing work and discussions.
 
 ## Course Materials
 
