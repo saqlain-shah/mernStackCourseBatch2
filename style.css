@@ -1,0 +1,23 @@
+* {
+  /* padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;   */
+  }
+.aa{
+    font-size: 50px;
+}
+.container {
+    width: 20%; /* Adjust the width and height according to your image size */
+    height: 20%;
+  }
+  
+  .hover-image {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s; /* Adjust the transition duration as needed */
+  }
+  
+  .hover-image:hover {
+    transform: scale(1.2); /* Adjust the scale factor to determine the hover effect */
+  }  
