@@ -22,10 +22,10 @@ table {
 th {
   border-bottom: 1px solid #364043;
   color: #1b049b;
-  font-size: 0.85em;
   font-weight: 600;
   padding: 0.5em 1em;
   text-align: center;
+
 }
 table, th,td{
   border: 1px solid rgb(64, 11, 134);
@@ -45,7 +45,7 @@ tbody tr:hover {
 
 
 .table-heading{
-  text-align: cen
+  text-align: center;
   font-size: 30px;
 }
 .logo-1{
@@ -57,7 +57,7 @@ tbody tr:hover {
   height: 100px;
 }
 .head{
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
 .head:hover{
