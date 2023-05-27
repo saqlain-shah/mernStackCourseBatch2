@@ -71,3 +71,17 @@
       margin-bottom: 21px;
       padding-left: 30%;
   }
+
+  a{
+    text-decoration: none;
+    font-size: 13px;
+    color:black;
+  }
+  a:hover{
+    color:rgb(112, 4, 4);
+  }
+
+  a:visited{
+    color:green;
+  }
+ 
