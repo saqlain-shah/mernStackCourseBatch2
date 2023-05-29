@@ -1,51 +1,55 @@
-/* style.css */
+
 .container {
-  max-width: 400px;
+  width: 300px;
   margin: 0 auto;
-  padding: 20px;
   text-align: center;
 }
 
-.logo {
-  max-width: 150px;
-  margin-bottom: 20px;
+h1 {
+  color: #333;
 }
 
-h2 {
-  margin-bottom: 20px;
-}
-
-.form-group {
-  text-align: left;
-  margin-bottom: 20px;
+form {
+  margin-top: 20px;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  color: #555;
 }
 
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
+input[type="text"],
+input[type="confirm password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  background-color: #4CAF50;
+  color: #fff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+}
+
+p {
+  margin-top: 20px;
+  color: #888;
 }
 
 a {
-  color: blue;
+  color: #4CAF50;
   text-decoration: none;
 }
