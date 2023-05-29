@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c8d3d6;
+}
+
+table {
+    width: 960px;
+    margin-top: 20px;
+    border: 1px solid;
+}
+
+td{
+    border: 1px solid;
+    padding: 20px 10px;
+    text-align: center;
+    background-color: white;
+  
+}
+.first {
+    border: 1px solid;
+    padding: 20px 10px;
+    text-align: center;
+    background-color: white;
+  
+}
+.second {
+    border: 1px solid;
+    padding: 20px 10px;
+    text-align: center;
+    background-color: white;
+  
+}
