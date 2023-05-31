@@ -1,8 +1,9 @@
-
 .container {
-  width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -20,14 +21,7 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-}
-
-input[type="text"],
+input[type="password"],
 input[type="confirm password"] {
   width: 100%;
   padding: 8px;
@@ -52,4 +46,48 @@ p {
 a {
   color: #4CAF50;
   text-decoration: none;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="confirm password"],
+  input[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* Pseudo-class and Pseudo-element Styling */
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="confirm password"]:focus {
+  border-color: #060390;
+}
+
+input[type="submit"]:hover {
+  background-color: #e12d2d;
+}
+
+.container::before,
+.container::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #4CAF50;
+  margin-top: 20px;
+}
+
+p:first-child {
+  font-weight: bold;
+}
+
+a:hover {
+  color: red;
 }
