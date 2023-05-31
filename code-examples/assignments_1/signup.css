@@ -71,3 +71,13 @@
       margin-bottom: 21px;
       padding-left: 30%;
   }
+
+
+  a:visited {
+    color: green;
+  }
+a{
+  text-decoration: none;
+  font-size: 20px;
+  color:white;
+}
