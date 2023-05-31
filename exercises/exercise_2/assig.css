@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+ }
+
+ body{
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #23242a;
+
+}
+.box{
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: #1c1c1c;
+    border-radius: 8pxs;
+}
+.box form{
+    position:absolute ;
+    inset: 4px;
+    background: #222;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+
+}
+.box form h1{
+    color: aliceblue;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+.box form .inputbox{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.box form .inputbox input{
+position: relative;
+width: 100%;
+padding:10px 10Spx 20px;
+
+color: #23242a;
+}
+
+.box form .inputbox span{
+color: aliceblue;
+}
+
+ .box form .links{
+    display: flex;
+    justify-content:space-between ;
+ }
+ .box form .links a{
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+ }
