@@ -1,40 +1,25 @@
-<!-- sign-up.html -->
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <img src="logo.png" alt="Logo Here" class="logo" />
-      <h2>Sign Up</h2>
-      <form action="sign-up.html" method="POST">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Enter your username"
-            required
-          />
-        </div>
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Sign Up</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <label for="confirm password">Confirm Password:</label>
+      <input type="confirm password" id="confirm password" name="confirm password" required>
+      <input type="submit" value="Sign Up">
+    </form>
+    <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+  </div>
+</body>
 
-        <button type="submit" class="btn">Sign Up</button>
-      </form>
-      <p>Have you already account? <a href="sign-in.html">Sign In</a></p>
-    </div>
-  </body>
 </html>
