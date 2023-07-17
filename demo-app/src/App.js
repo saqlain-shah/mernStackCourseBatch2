@@ -1,10 +1,13 @@
 import React from "react";
-import Counter from "./components/counter";
+import PersonalInformation from "./components/AdmissionForm/PersonalInformation";
+import EducationBackground from "./components/AdmissionForm/EducationBackground";
+import Declaration from "./components/AdmissionForm/Declaration";
+import FinalComponent from "./components/AdmissionForm/FinalComponent";
 
 function App() {
   return (
     <React.Fragment>
-      <Counter />
+      <FinalComponent />
     </React.Fragment>
   );
 }
