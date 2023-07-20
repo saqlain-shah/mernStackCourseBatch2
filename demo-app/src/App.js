@@ -1,13 +1,21 @@
 import React from "react";
-import PersonalInformation from "./components/AdmissionForm/PersonalInformation";
-import EducationBackground from "./components/AdmissionForm/EducationBackground";
-import Declaration from "./components/AdmissionForm/Declaration";
-import FinalComponent from "./components/AdmissionForm/FinalComponent";
+// import Profile from "./components/Profile";
+// import Counter from "./components/Counter";
+import './App.css'
+import FinalComponent from "./components/Admission/FinalComponent";
+import { Box, Container } from "@mui/material";
 
 function App() {
   return (
     <React.Fragment>
-      <FinalComponent />
+      <Container maxWidth="sm">
+        <Box sx={{ mt: 6, mb: 4 }}>
+
+          <FinalComponent />
+
+        </Box>
+      </Container>
+
     </React.Fragment>
   );
 }
