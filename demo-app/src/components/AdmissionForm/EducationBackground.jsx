@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Button } from '@mui/material';
 
-const EducationBackground = ({ Props }) => {
+const EducationBackground = ({ Props, Previous , data}) => {
     const [education, setEducation] = useState('');
-    const [university, setUniversity] = useState('');
+    const [university, setUniversity] = useState( '');
     const [year, setYear] = useState('');
+
+    useEffect(() => {
+        setEducation(data.education)
+        setUniversity(data.university)
+        setYear(data.year)
+
+
+    }, [data]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const educationInfo = {
+        const educationInfo = { 
             education,
             university,
             year,
@@ -40,6 +48,9 @@ const EducationBackground = ({ Props }) => {
                 fullWidth
                 margin="normal"
             />
+            <Button onClick={Previous}  variant="contained" color="primary" type="submit">
+                Previous
+            </Button>
             <Button variant="contained" color="primary" type="submit">
                 Next
             </Button>

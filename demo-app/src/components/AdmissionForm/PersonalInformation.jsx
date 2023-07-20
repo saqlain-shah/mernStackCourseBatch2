@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 
-const PersonalInformation = ({ Props }) => {
-  const [name, setName] = useState('');
+const PersonalInformation = ({ Props, data }) => {
+  const [userName, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
+
+  useEffect(() => {
+    setName(data.userName)
+    setEmail(data.email)
+    setPhone(data.phone)
+
+    
+  }, [data]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const personalInfo = {
-      name,
+      userName,
       email,
       phone,
     };
@@ -24,7 +32,7 @@ const PersonalInformation = ({ Props }) => {
 
       <TextField
         label="Name"
-        value={name}
+        value={userName}
         onChange={(e) => setName(e.target.value)}
         fullWidth
         margin="normal"
@@ -44,6 +52,7 @@ const PersonalInformation = ({ Props }) => {
         fullWidth
         margin="normal"
       />
+
       <Button variant="contained" color="primary" type="submit">
         Next
       </Button>

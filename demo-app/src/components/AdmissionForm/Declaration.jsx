@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Checkbox, FormControlLabel, Button } from '@mui/material';
 
-const Declaration = ({ Props }) => {
-    const [agreed, setAgreed] = useState(false);
+const Declaration = ({ Props, Previous, data }) => {
+    const [agreed, setAgreed] = useState(data);
+    useEffect(() => {
 
+        setAgreed(data.agreed)
+
+    }, [data]);
     const handleSubmit = (e) => {
         e.preventDefault();
         const declarationInfo = {
@@ -21,6 +25,9 @@ const Declaration = ({ Props }) => {
                 }
                 label="I agree to the terms and conditions."
             />
+            <Button onClick={Previous} variant="contained" color="primary" type="submit">
+                Previous
+            </Button>
             <Button variant="contained" color="primary" type="submit">
                 Submit
             </Button>
