@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import PersonalInformation from './PersonalInformation';
-import EducationBackground from './EducationBackground';
-import Declaration from './Declaration';
+import EducationalBackground from './EducationalBackground';
+import Declaration from './Decleration';
 import FormSummary from './FormSummary';
 
 const FinalComponent = () => {
     const [step, setStep] = useState(0);
-    const [personalInfo, setPersonalInfo] = useState({});
-    const [educationInfo, setEducationInfo] = useState({});
+   
+    const [personaldetails, setpersonaldetails] = useState({});
+    const [EducationBackground, setEducationBackground] = useState({});
     const [declarationInfo, setDeclarationInfo] = useState({});
 
     const handleNextStep = () => {
@@ -19,12 +20,12 @@ const FinalComponent = () => {
     };
 
     const handlePersonalInfoSubmit = (info) => {
-        setPersonalInfo(info);
+        setpersonaldetails(info);
         handleNextStep();
     };
 
     const handleEducationInfoSubmit = (info) => {
-        setEducationInfo(info);
+        setEducationBackground(info);
         handleNextStep();
     };
 
@@ -35,25 +36,25 @@ const FinalComponent = () => {
 
     switch (step) {
         case 0:
-            return <PersonalInformation Props={handlePersonalInfoSubmit} data={personalInfo} />;
+            return <PersonalInformation Props={handlePersonalInfoSubmit} Data={personaldetails} />;
         case 1:
             return (
-                <EducationBackground
+                <EducationalBackground
                     Props={handleEducationInfoSubmit}
-                    Previous={handlePrevStep}
-                    data={educationInfo}
+                    Prev={handlePrevStep}
+                    Data={EducationBackground}
                 />
             );
         case 2:
             return (
                 <Declaration
                     Props={handleDeclarationSubmit}
-                    Previous={handlePrevStep}
-                    data={declarationInfo}
+                    Prev={handlePrevStep}
+                    Data={declarationInfo}
                 />
             );
         case 3:
-            return <FormSummary personalInfo={personalInfo} educationInfo={educationInfo} declarationInfo={declarationInfo} Previous={handlePrevStep} />;
+            return <FormSummary personalInfo={personaldetails} educationInfo={EducationBackground} declarationInfo={declarationInfo} />;
         default:
             return null;
     }
