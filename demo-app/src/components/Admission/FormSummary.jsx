@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography, Button } from '@mui/material';
+import { Typography } from '@mui/material';
 
-const FormSummary = ({ personalInfo, educationInfo, declarationInfo, Previous }) => {
+const FormSummary = ({ personalInfo, educationInfo, declarationInfo }) => {
    
    
     return (
@@ -27,10 +27,6 @@ const FormSummary = ({ personalInfo, educationInfo, declarationInfo, Previous })
                     ? 'You have agreed to the terms and conditions.'
                     : 'You have not agreed to the terms and conditions.'}
             </Typography>
-
-            <Button onClick={Previous} variant="contained" color="primary" type="submit">
-                Previous
-            </Button>
         </div>
     );
 };
