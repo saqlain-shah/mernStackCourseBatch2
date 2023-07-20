@@ -6,7 +6,7 @@ import FormSummary from './FormSummary';
 
 const FinalComponent = () => {
     const [step, setStep] = useState(0);
-   
+
     const [personaldetails, setpersonaldetails] = useState({});
     const [EducationBackground, setEducationBackground] = useState({});
     const [declarationInfo, setDeclarationInfo] = useState({});
@@ -36,7 +36,10 @@ const FinalComponent = () => {
 
     switch (step) {
         case 0:
-            return <PersonalInformation Props={handlePersonalInfoSubmit} Data={personaldetails} />;
+            return <PersonalInformation
+                Props={handlePersonalInfoSubmit}
+                Data={personaldetails}
+            />;
         case 1:
             return (
                 <EducationalBackground
@@ -50,7 +53,7 @@ const FinalComponent = () => {
                 <Declaration
                     Props={handleDeclarationSubmit}
                     Prev={handlePrevStep}
-                    Data={declarationInfo}
+
                 />
             );
         case 3:

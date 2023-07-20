@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 
 
 const EducationBackground = ({ Props , Prev, Data}) => {
-    const [EducationBackground, setEducationBackground] = useState(Data ||{
+    const [EducationBackground, setEducationBackground] = useState({
         education: "",
         university: "",
         year: "",
     });
+
+    useEffect(()=>{
+        setEducationBackground(Data)
+      },[Data])
 
     const handleSubmit = (e) => {
         e.preventDefault();
