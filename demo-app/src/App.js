@@ -1,15 +1,15 @@
-import React from "react";
-import PersonalInformation from "./components/AdmissionForm/PersonalInformation";
-import EducationBackground from "./components/AdmissionForm/EducationBackground";
-import Declaration from "./components/AdmissionForm/Declaration";
-import FinalComponent from "./components/AdmissionForm/FinalComponent";
+import React from 'react'
+import './App.css'
+import FinalComponent from './Components/AdmissionForm/FinalComponents'
 
-function App() {
+
+const App = () => {
   return (
-    <React.Fragment>
-      <FinalComponent />
-    </React.Fragment>
-  );
+    <div className='container'>
+           <FinalComponent></FinalComponent>
+           {/* <Step_Final></Step_Final> */}
+    </div>
+  )
 }
 
-export default App;
+export default App

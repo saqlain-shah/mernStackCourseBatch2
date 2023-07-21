@@ -10,6 +10,7 @@ const FinalComponent = () => {
     const [educationInfo, setEducationInfo] = useState({});
     const [declarationInfo, setDeclarationInfo] = useState({});
 
+
     const handleNextStep = () => {
         setStep((prevStep) => prevStep + 1);
     };
@@ -35,25 +36,25 @@ const FinalComponent = () => {
 
     switch (step) {
         case 0:
-            return <PersonalInformation Props={handlePersonalInfoSubmit} data={personalInfo} />;
+            return <PersonalInformation props={handlePersonalInfoSubmit}  personalInfo={personalInfo} />;
         case 1:
             return (
                 <EducationBackground
-                    Props={handleEducationInfoSubmit}
-                    Previous={handlePrevStep}
-                    data={educationInfo}
+                    props={handleEducationInfoSubmit}
+                    onPrev={handlePrevStep}
+                    educationInfo={educationInfo}
                 />
             );
         case 2:
             return (
                 <Declaration
                     Props={handleDeclarationSubmit}
-                    Previous={handlePrevStep}
-                    data={declarationInfo}
+                    onPrev={handlePrevStep}
+        
                 />
             );
         case 3:
-            return <FormSummary personalInfo={personalInfo} educationInfo={educationInfo} declarationInfo={declarationInfo} Previous={handlePrevStep} />;
+            return <FormSummary personalInfo={personalInfo} educationInfo={educationInfo} declarationInfo={declarationInfo} data={handlePrevStep }  />;
         default:
             return null;
     }
