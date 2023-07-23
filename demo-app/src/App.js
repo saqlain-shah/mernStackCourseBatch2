@@ -1,13 +1,10 @@
 import React from "react";
-import PersonalInformation from "./components/AdmissionForm/PersonalInformation";
-import EducationBackground from "./components/AdmissionForm/EducationBackground";
-import Declaration from "./components/AdmissionForm/Declaration";
-import FinalComponent from "./components/AdmissionForm/FinalComponent";
+import FlightBookingForm from "./components/MultiStepForm/FlightBookingForm";
 
 function App() {
   return (
     <React.Fragment>
-      <FinalComponent />
+      <FlightBookingForm />
     </React.Fragment>
   );
 }
