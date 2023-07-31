@@ -1,0 +1,58 @@
+/* .main {
+  border: 1px solid black;
+  display: flex;
+  padding: 10px;
+  width: 50%;
+  margin: 10px auto;
+  flex-direction: column;
+  line-height: 30px;
+  background-color: hwb(0 85% 14%);
+}
+body {
+  background-color: rgb(255, 255, 255);
+}
+input {
+  display: block;
+  width: 80%;
+  height: 40px;
+}
+label {
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+button {
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
+  width: 25%;
+  padding: 10px;
+  font-size: 20px;
+}
+.fields_error{
+  color: red;
+ 
+}
+.footer{
+  font-size: 25px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+} */
+
+table,th,td{
+  border: 1px solid black;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+td {
+  padding: 30px;
+}
+table td {
+  border-spacing: 5px;
+}
+table{
+  width: 100%;
+}

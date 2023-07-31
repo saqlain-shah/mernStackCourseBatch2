@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
-const EducationBackground = ({ props, onPrev,educationInfo }) => {
+const EducationBackground = ({ props, onPrev, educationInfo }) => {
 const [education, setEducation] = useState({
   ...educationInfo
 })

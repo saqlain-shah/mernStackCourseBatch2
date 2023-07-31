@@ -1,15 +1,12 @@
-import React from 'react'
-import './App.css'
-import FinalComponent from './Components/AdmissionForm/FinalComponents'
-
-
-const App = () => {
+import React from "react";
+import './sign.css';
+import FlightBookingForm from "./NewForm/MultiStepForm/FlightBookingForm";
+function App() {
   return (
-    <div className='container'>
-           <FinalComponent></FinalComponent>
-           {/* <Step_Final></Step_Final> */}
+    <div className="container">
+                 <FlightBookingForm></FlightBookingForm>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

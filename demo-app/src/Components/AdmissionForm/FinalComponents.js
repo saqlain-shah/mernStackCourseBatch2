@@ -10,7 +10,6 @@ const FinalComponent = () => {
     const [educationInfo, setEducationInfo] = useState({});
     const [declarationInfo, setDeclarationInfo] = useState({});
 
-
     const handleNextStep = () => {
         setStep((prevStep) => prevStep + 1);
     };
@@ -55,6 +54,7 @@ const FinalComponent = () => {
             );
         case 3:
             return <FormSummary personalInfo={personalInfo} educationInfo={educationInfo} declarationInfo={declarationInfo} data={handlePrevStep }  />;
+            
         default:
             return null;
     }

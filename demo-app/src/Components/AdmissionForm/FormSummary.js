@@ -1,8 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 
-const FormSummary = ({ personalInfo, educationInfo, declarationInfo }) => {
-   
+const FormSummary = ({ personalInfo, educationInfo, declarationInfo, onPrev }) => {
    
     return (
         <div>
