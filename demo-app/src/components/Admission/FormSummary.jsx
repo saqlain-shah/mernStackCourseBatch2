@@ -16,7 +16,7 @@ const FormSummary = ({ personalInfo, educationInfo, declarationInfo }) => {
 
             <Typography variant="h5">Education Background</Typography>
             <Typography>
-                Education Level: {educationInfo.education} <br />
+                 Education Level: {educationInfo.education} <br />
                 University: {educationInfo.university} <br />
                 Year of Graduation: {educationInfo.year}
             </Typography>

@@ -1,32 +1,40 @@
 // TravellerInfoStep.js
+import {  Typography } from "@mui/material";
+import { useFormContext } from "react-hook-form";
+import { Formik, Form, Field, FieldArray, useFormikContext } from "formik";
 import React from "react";
-import { FieldArray, Field } from "formik";
-import { TextField } from "@mui/material";
+import AdultPassengerForm from "./Forms/AdultPassengerForm";
+import ChildPassengerForm from "./Forms/ChildPassengerForm";
+import InfantPassengerForm from "./Forms/InfantPassengerForm";
 
 const TravellerInfoStep = ({ formProps }) => {
+  const formik = useFormikContext();
+  const { number_of_adults, number_of_children, number_of_infants } = formik.values;
+
+  console.log("Formik Values", formik.values)
+  console.log("formProps", formProps)
+
   return (
-    <div>
-      <FieldArray name="adult">
-        {(arrayHelpers) => (
-          <div>
-            {formProps.values.adults &&
-              formProps.values.adults.map((adult, index) => (
-                <div key={index}>
-                  <Field
-                    as={TextField}
-                    name={`Adult.${index}.name`}
-                    label="Adult Name"
-                    fullWidth
-                    // Add other props and error handling using formProps
-                  />
-                  {/* Add other fields for traveller information */}
-                </div>
-              ))}
-          </div>
-        )}
-      </FieldArray>
-    </div>
+    <React.Fragment>
+      <Typography variant="h6" gutterBottom>
+        Passenger Information
+      </Typography>
+
+      <AdultPassengerForm
+        register={formik}
+        number_of_adults={number_of_adults}
+      />
+      <ChildPassengerForm
+        register={formik}
+        number_of_children={number_of_children}
+      />
+      <InfantPassengerForm
+        register={formik}
+        number_of_infants={number_of_infants}
+      />
+
+    </React.Fragment>
   );
 };
 
-export default TravellerInfoStep;
+export default TravellerInfoStep
