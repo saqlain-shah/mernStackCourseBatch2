@@ -5,6 +5,7 @@ import './App.css'
 // import FinalComponent from "./components/Admission/FinalComponent";
 import { Box, Container } from "@mui/material";
 import FlightBookingForm from "./components/MultiStepForm/FlightBookingForm";
+import Component1 from "./components/ContextAPI/ContexApi"
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Container maxWidth="sm">
         <Box sx={{ mt: 6, mb: 4 }}>
 
-          <FlightBookingForm/>
+          <Component1/>
 
         </Box>
       </Container>
