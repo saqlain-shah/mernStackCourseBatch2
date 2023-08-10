@@ -14,7 +14,7 @@ function App() {
       <Container maxWidth="sm">
         <Box sx={{ mt: 6, mb: 4 }}>
 
-          <LinearStepper/>
+          <FlightBookingForm/>
 
         </Box>
       </Container>
