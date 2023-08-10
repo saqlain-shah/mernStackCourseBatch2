@@ -2,7 +2,7 @@ import {
   createTheme,
   responsiveFontSizes,
   makeStyles
-} from '@material-ui/core/styles';
+} from '@mui/styles';
 import { cyan } from '@mui/material/colors';
 
 let theme = createTheme({

@@ -7,6 +7,7 @@ import {
   StepLabel,
 } from "@mui/material";
 import { Formik, Form } from "formik";
+import formSchema from "../../components/utils/validation"
 import BookingInfo from "./steps/BookingInfo";
 import FlightInfo from "./steps/FlightInfo";
 import PassengerInfo from "./steps/PassengerInfo";
@@ -23,7 +24,6 @@ function getSteps() {
     "Passenger Information",
     "Review Your Booking",
     "Confirm Booking",
-    "Checkout",
   ];
 }
 
@@ -39,8 +39,6 @@ function getStepContent(step) {
       return <ReviewBooking />;
     case 4:
       return <ConfirmBooking />;
-    case 5:
-      return <Checkout />;
     default:
       return "unknown step";
   }
@@ -81,7 +79,7 @@ const LinearStepper = () => {
   return (
     <div>
       <Typography component="h1" variant="h4" align="center">
-        
+
         Flight Reservation Form (Using Formik)
       </Typography>
       <Stepper
@@ -123,6 +121,7 @@ const LinearStepper = () => {
           <>
             <Formik
               initialValues={formDefaultValues}
+                validationSchema={formSchema}
               onSubmit={() => { }}
             >
               {({ handleSubmit }) => (

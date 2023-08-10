@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
 import { TextField } from "@mui/material";
-import '../../App.css';
+import '../../App.css'
 
 const BookingDetailStep = ({ formProps }) => {
   return (

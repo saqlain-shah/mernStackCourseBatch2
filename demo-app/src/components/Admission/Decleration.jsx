@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Checkbox, FormControlLabel, Button, Typography } from '@mui/material';
 
 const Declaration = ({ Props, Prev, Data }) => {
-    const [agreed, setAgreed] = useState(Data || false);
+    const [agreed, setAgreed] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();

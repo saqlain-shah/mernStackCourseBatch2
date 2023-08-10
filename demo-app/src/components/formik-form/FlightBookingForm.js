@@ -56,9 +56,9 @@ const FormValidationSchema = Yup.object().shape({
     .required("Required")
     .matches(/^\+?\d{1,3}-\d{1,3}-\d{4,14}$/, "Invalid phone number format")
     .max(14, "Phone number must not exceed 14 characters"),
-  pnr: Yup.string()
+  pnr: Yup.number()
     .required("Required")
-    .matches(/^\d+$/, "PNR must be a number"),
+    .typeError("PNR must be a number"),
   ticket: Yup.string().required("Required"),
   to: Yup.string().required("Required"),
   from: Yup.string().required("Required"),
@@ -70,29 +70,48 @@ const FormValidationSchema = Yup.object().shape({
     .required("Required")
     .typeError("Must be a number")
     .integer("Must be an integer"),
-  child: Yup.number().typeError("Must be a number").integer("Must be an integer"),
-  infant: Yup.number().typeError("Must be a number").integer("Must be an integer"),
+  child: Yup.number()
+    .typeError("Must be a number")
+    .integer("Must be an integer"),
+  infant: Yup.number()
+    .when(['adults', 'child'], (adults, child, schema) => {
+      return schema.test(
+        'max-infants',
+        'Only one infant per adult is allowed',
+        function (value) {
+          if (adults >= value || child >= value) {
+            return true;
+          }
+          return this.createError({
+            path: this.path,
+            message: 'Only one infant per adult is allowed',
+          });
+        }
+      );
+    }),
+  // ... (other fields)
   basicFare: Yup.number()
-    .required("Required")
-    .typeError("Must be a number"),
+  .required("Required")
+  .typeError("Must be a number"),
   taxes: Yup.number()
     .required("Required")
     .typeError("Must be a number"),
-  sc: Yup.number()
-    .required("Required")
-    .typeError("Must be a number"),
-  discount: Yup.number()
-    .required("Required")
-    .typeError("Must be a number"),
-  totalAmount: Yup.number()
-    .required("Required")
-    .typeError("Must be a number"),
+    sc: Yup.number()
+      .required("Required")
+      .typeError("Must be a number"),
+      discount: Yup.number()
+        .required("Required")
+        .typeError("Must be a number"),
+        totalAmount: Yup.number()
+          .required("Required")
+          .typeError("Must be a number"),
 });
 
 
-  const handleSubmitForm = () => {
-   console.log("Form Is Submitted")
-  };
+const handleSubmitForm = () => {
+  console.log("Form Is Submitted")
+  alert("Form is submitted")
+};
 
 const FlightBookingForm = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -122,7 +141,7 @@ const FlightBookingForm = () => {
 
   return (
     <Formik
-      initialValues= {FormInitialValues}
+      initialValues={FormInitialValues}
       validationSchema={FormValidationSchema}
       onSubmit={handleSubmitForm}
     >
