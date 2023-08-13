@@ -12,6 +12,7 @@ const BookingDetailStep = ({ formProps }) => {
           name="to"
           label="To"
           fullWidth
+          margin='normal'
         />
         <ErrorMessage name="to">
           {errorMessage => (
@@ -27,6 +28,7 @@ const BookingDetailStep = ({ formProps }) => {
           name="from"
           label="From"
           fullWidth
+          margin='normal'
         />
         <ErrorMessage name="from">
           {errorMessage => (
@@ -42,6 +44,7 @@ const BookingDetailStep = ({ formProps }) => {
           name="adults"
           label="Adult"
           fullWidth
+          margin='normal'
         />
         <ErrorMessage name="adults">
           {errorMessage => (
@@ -56,6 +59,7 @@ const BookingDetailStep = ({ formProps }) => {
           as={TextField}
           name="child"
           label="Children"
+          margin='normal'
           fullWidth
         />
         <ErrorMessage name="child">
@@ -71,6 +75,7 @@ const BookingDetailStep = ({ formProps }) => {
           as={TextField}
           name="infant"
           label="Infant"
+          margin='normal'
           fullWidth
         />
         <ErrorMessage name="infant">
