@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, TextField, Typography } from "@mui/material";
-import { useFormikContext, FastField } from "formik";
+import { useFormikContext, FastField, ErrorMessage } from "formik";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -60,6 +60,7 @@ const BookingInfo = () => {
               variant="outlined"
               fullWidth={true}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
           <Grid item xs={3}>
             <FastField 
@@ -69,6 +70,7 @@ const BookingInfo = () => {
               variant="outlined"
               fullWidth={true}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
           <Grid item xs={3}>
             <FastField 
@@ -82,6 +84,7 @@ const BookingInfo = () => {
                 shrink: true,
               }}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
           <Grid item xs={3}>
             <FastField 
@@ -89,13 +92,14 @@ const BookingInfo = () => {
               as={TextField} // Use the "as" prop to specify the input component
               label="Return Date"
               type="date"
-              disabled={oneWayTrip === true ? true : false}
+              disabled={oneWayTrip===true ? true:false}
               variant="outlined"
               fullWidth={true}
               InputLabelProps={{
                 shrink: true,
               }}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
           <Grid item xs={4}>
             <FastField 
@@ -105,6 +109,7 @@ const BookingInfo = () => {
               variant="outlined"
               fullWidth={true}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
           <Grid item xs={4}>
             <FastField 
@@ -114,6 +119,7 @@ const BookingInfo = () => {
               variant="outlined"
               fullWidth={true}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
           <Grid item xs={4}>
             <FastField 
@@ -123,6 +129,7 @@ const BookingInfo = () => {
               variant="outlined"
               fullWidth={true}
             />
+            <ErrorMessage name="to" component="div" className="error-message" />
           </Grid>
         </Grid>
       </React.Fragment>

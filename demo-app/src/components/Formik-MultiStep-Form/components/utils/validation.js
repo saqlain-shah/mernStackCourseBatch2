@@ -7,6 +7,7 @@ const formSchema = yup.object().shape({
     .typeError("Number of adults must be a valid number")
     .integer("Number of adults must be an integer")
     .min(0, "Number of adults cannot be negative")
+    .max(10, "Number of adults Should not exceed than 10")
     .required("Number of adults is required"),
   number_of_children: yup
     .number()

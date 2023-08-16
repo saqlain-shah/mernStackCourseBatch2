@@ -1,5 +1,5 @@
 export const formDefaultValues = {
-  oneWayTrip: true,
+  oneWayTrip:null,
   origin: "Skardu",
   destination: "Islamabad",
   journeyDate: "12/12/12",

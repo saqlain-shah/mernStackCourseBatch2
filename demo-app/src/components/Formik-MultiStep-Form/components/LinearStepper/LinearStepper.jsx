@@ -121,7 +121,7 @@ const LinearStepper = () => {
           <>
             <Formik
               initialValues={formDefaultValues}
-                validationSchema={formSchema}
+              validationSchema={formSchema}
               onSubmit={() => { }}
             >
               {({ handleSubmit }) => (

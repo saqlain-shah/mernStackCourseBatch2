@@ -6,15 +6,15 @@ import './App.css'
 import { Box, Container } from "@mui/material";
 import FlightBookingForm from "./components/formik-form/FlightBookingForm";
 import LinearStepper from "./components/Formik-MultiStep-Form/components/LinearStepper/LinearStepper"
-import Component1 from "./components/ContextAPI/ContexApi"
+// import Component1 from "./components/ContextAPI/ContexApi"
 
 function App() {
   return (
     <React.Fragment>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Box sx={{ mt: 6, mb: 4 }}>
 
-          <FlightBookingForm/>
+          <LinearStepper/>
 
         </Box>
       </Container>

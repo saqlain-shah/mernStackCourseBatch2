@@ -67,29 +67,31 @@ const FormValidationSchema = Yup.object().shape({
   journeyDate: Yup.string().required("Required"),
   returnDate: Yup.string().required("Required"),
   adults: Yup.number()
-  .required("Required")
-  .typeError("Must be a number")
-  .integer("Must be an integer"),
-child: Yup.number()
-  .typeError("Must be a number")
-  .integer("Must be an integer"),
-infant: Yup.number()
-  .typeError("Must be a number")
-  .integer("Must be an integer")
-  .test(
-    'max-infants-per-adult',
-    'Only one infant per adult is allowed',
-    function(value) {
-      const { adults } = this.parent;
-      if (adults >= value) {
-        return true;
+    .required("Required")
+    .typeError("Must be a number")
+    .integer("Must be an integer"),
+  child: Yup.number()
+    .typeError("Must be a number")
+    .integer("Must be an integer"),
+  infant: Yup.number()
+    .typeError("Must be a number")
+    .integer("Must be an integer")
+    .test(
+      'max-infants-per-adult',
+      'Only one infant per adult is allowed',
+      function (value) {
+        const { adults } = this.parent;
+        if (adults >= value || value==null) {
+          return true;
+        }
+        else {
+          return this.createError({
+            path: this.path,
+            message: 'Only one infant per adult is allowed',
+          });
+        }
       }
-      return this.createError({
-        path: this.path,
-        message: 'Only one infant per adult is allowed',
-      });
-    }
-  ),
+    ),
   basicFare: Yup.number()
     .required("Required")
     .typeError("Must be a number"),
