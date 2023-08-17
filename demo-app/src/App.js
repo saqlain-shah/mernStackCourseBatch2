@@ -7,7 +7,7 @@ import { Box, Container } from "@mui/material";
 import FlightBookingForm from "./components/formik-form/FlightBookingForm";
 import LinearStepper from "./components/Formik-MultiStep-Form/components/LinearStepper/LinearStepper"
 // import Component1 from "./components/ContextAPI/ContexApi"
-
+import AppRouter from "./components/React-Router-Dom/AppRouter"
 function App() {
   return (
     <React.Fragment>
