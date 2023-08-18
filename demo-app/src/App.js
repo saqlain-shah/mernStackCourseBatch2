@@ -8,13 +8,16 @@ import FlightBookingForm from "./components/formik-form/FlightBookingForm";
 import LinearStepper from "./components/Formik-MultiStep-Form/components/LinearStepper/LinearStepper"
 // import Component1 from "./components/ContextAPI/ContexApi"
 import AppRouter from "./components/React-Router-Dom/AppRouter"
+import Form from "./components/MUI-Table/Form";
+import Table from "./components/MUI-Table/Table";
 function App() {
   return (
     <React.Fragment>
       <Container maxWidth="md">
         <Box sx={{ mt: 6, mb: 4 }}>
 
-          <LinearStepper/>
+          <Form />
+          
 
         </Box>
       </Container>
