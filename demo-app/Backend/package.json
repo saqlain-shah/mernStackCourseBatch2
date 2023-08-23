@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaffer720/mernStackCourse.git#jaffarTrainee"
+  },
+  "author": "Jaffer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaffer720/mernStackCourse/issues"
+  },
+  "homepage": "https://github.com/Jaffer720/mernStackCourse/tree/jaffarTrainee#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.8.0",
+    "mongoose": "^7.4.4"
+  }
+}
