@@ -1,26 +1,26 @@
 import express from "express";
-import { MongoClient } from "mongodb";
-
-const connectionString = "mongodb+srv://mjaffer720:Jaffer123@cluster0.nxydjib.mongodb.net/?retryWrites=true&w=majority"
-
-const client = new MongoClient(connectionString);
-
-let conn;
-try {
-    conn = await client.connect();
-    console.log("Backend connected")
-} catch {
-    console.log("error");
-}
-
-let db = conn.db("sample_training");
-
-export default db;
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 const app = express();
+dotenv.config();
+
+const connect = async () => {
+    try {
+       await mongoose.connect(process.env.Mongodb_Atlas);
+        console.log("Backend connected")
+    } catch {
+        console.log("error");
+    }
+}
+
+mongoose.connection.on("disconnected", ()=>{
+    console.log("mongodb is disconnected!")
+})
 
 
-app.listen(8000, () => {
-    console.log('Server is running on port: 8000');
+app.listen(process.env.PORT, () => {
+    connect();
+    console.log(`Server is running on port: ${process.env.PORT}`);
 });
 
