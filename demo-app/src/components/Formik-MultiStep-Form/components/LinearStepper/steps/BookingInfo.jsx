@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, TextField, Typography } from "@material-ui/core";
-import { useFormikContext, Field } from "formik";
+import { useFormikContext, FastField } from "formik";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -53,7 +53,7 @@ const BookingInfo = () => {
         </FormControl>
         <Grid container spacing={3}>
           <Grid item xs={3}>
-            <Field
+            <FastField 
               name="origin"
               as={TextField} // Use the "as" prop to specify the input component
               label="From"
@@ -62,7 +62,7 @@ const BookingInfo = () => {
             />
           </Grid>
           <Grid item xs={3}>
-            <Field
+            <FastField 
               name="destination"
               as={TextField} // Use the "as" prop to specify the input component
               label="Destination"
@@ -71,7 +71,7 @@ const BookingInfo = () => {
             />
           </Grid>
           <Grid item xs={3}>
-            <Field
+            <FastField 
               name="journeyDate"
               as={TextField} // Use the "as" prop to specify the input component
               label="Journey Date"
@@ -84,7 +84,7 @@ const BookingInfo = () => {
             />
           </Grid>
           <Grid item xs={3}>
-            <Field
+            <FastField 
               name="returnDate"
               as={TextField} // Use the "as" prop to specify the input component
               label="Return Date"
@@ -98,7 +98,7 @@ const BookingInfo = () => {
             />
           </Grid>
           <Grid item xs={4}>
-            <Field
+            <FastField 
               name="number_of_adults"
               as={TextField} // Use the "as" prop to specify the input component
               label="Number of Adults"
@@ -107,7 +107,7 @@ const BookingInfo = () => {
             />
           </Grid>
           <Grid item xs={4}>
-            <Field
+            <FastField 
               name="number_of_children"
               as={TextField} // Use the "as" prop to specify the input component
               label="Number of Children"
@@ -116,7 +116,7 @@ const BookingInfo = () => {
             />
           </Grid>
           <Grid item xs={4}>
-            <Field
+            <FastField 
               name="number_of_infants"
               as={TextField} // Use the "as" prop to specify the input component
               label="Number of Infants"
