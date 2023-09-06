@@ -2,10 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js";
-import usersRoute from "./routes/users.js";
-import hotelsRoute from "./routes/hotels.js";
-import roomsRoute from "./routes/rooms.js";
-import bookingsRoute from "./routes/bookings.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -21,7 +17,6 @@ const connect = async () => {
   }
 };
 
-
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
@@ -32,10 +27,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
-app.use("/api/users", usersRoute);
-app.use("/api/hotels", hotelsRoute);
-app.use("/api/rooms", roomsRoute);
-app.use("/api/bookings", bookingsRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
@@ -53,5 +44,3 @@ app.listen(process.env.PORT, () => {
   console.log("server listen on port 8800");
   console.log("Connected to backend.");
 });
-
-
