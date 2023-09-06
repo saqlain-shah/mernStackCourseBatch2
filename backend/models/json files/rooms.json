@@ -1,0 +1,39 @@
+[
+  {
+    "title": "single",
+    "price": 10000,
+    "maxPeople": 1,
+    "desc": "Abrasion finger-infected",
+    "roomNumbers": 1
+  },
+  {
+    "title": "double",
+    "price": 5000,
+    "maxPeople": 2,
+    "desc": "Genital organ anom NEC",
+    "roomNumbers": 2
+  },
+  {
+    "title": "king size",
+    "price": 30000,
+    "maxPeople": 3,
+    "desc": "Nd vac strp pnumn/inflnz",
+    "roomNumbers": 3
+  },
+  {
+    "title": "super king ",
+    "price": 35000,
+    "maxPeople": 3,
+    "desc": "Recur depr psyc-full rem",
+    "roomNumbers": 4
+  },
+  {
+    "title": "single",
+    "price": 5000,
+    "maxPeople": 2,
+    "desc": "TB epididymis-histo dx",
+    "roomNumbers": 5
+  }
+]
+
+
