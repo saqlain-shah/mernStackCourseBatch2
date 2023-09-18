@@ -10,11 +10,13 @@ import {
   updateHotel,
 } from "../controllers/hotel.js";
 import Hotel from "../models/Hotel.js";
-import {verifyAdmin} from "../utils/verifyToken.js"
+import upload from "../utils/multer.js";
+
+import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 //CREATE
-router.post("/", verifyAdmin, createHotel);
+router.post("/", verifyAdmin, upload.single("photos"), createHotel);
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateHotel);
@@ -31,7 +33,3 @@ router.get("/countByType", countByType);
 router.get("/room/:id", getHotelRooms);
 
 export default router;
-
-
-
-

@@ -2,69 +2,51 @@ import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
 import upload from "../utils/multer.js";
 import fs from "fs";
+
 export const createHotel = async (req, res, next) => {
+  console.log("API Called");
   try {
-    // Check if the file exists before using it
-    if (!req.file || !fs.existsSync(req.file.path)) {
-      console.error("Uploaded file does not exist.");
-      return res.status(400).json({ error: "Uploaded file does not exist" });
-    }
-    // Use Multer to handle image uploads
-    upload.single("photos")(req, res, async function (err) {
-      if (err) {
-        // Handle Multer upload error
-        console.error("Error uploading images:", err); // Log the error for debugging
-        return res.status(500).json({ error: "Error uploading images" });
-      }
+    const photo = req.file.path;
 
-      // Continue only if there are no Multer upload errors
-      try {
-        // Get the file path of the uploaded image from req.file
-        const photo = req.file.path;
+    const {
+      name,
+      type,
+      city,
+      address,
+      distance,
+      title,
+      desc,
+      rating,
+      rooms,
+      cheapestPrice,
+      featured,
+    } = req.body;
 
-        const {
-          name,
-          type,
-          city,
-          address,
-          distance,
-          title,
-          desc,
-          rating,
-          rooms,
-          cheapestPrice,
-          featured,
-        } = req.body;
+    console.log("Request Body : ", req.body);
+    console.log("Request File : ", photo);
 
-        const newHotel = new Hotel({
-          name,
-          type,
-          city,
-          address,
-          distance,
-          photos: [photo], // Store the file path in an array
-          title,
-          desc,
-          rating,
-          rooms,
-          cheapestPrice,
-          featured,
-        });
-
-        const savedHotel = await newHotel.save();
-        res.status(200).json(savedHotel);
-      } catch (error) {
-        // Handle any errors that occur during hotel creation
-        console.error("Error creating hotel:", error); // Log the error for debugging
-        res.status(500).json({ error: "Error creating hotel" });
-      }
+    const newHotel = new Hotel({
+      name,
+      type,
+      city,
+      address,
+      distance,
+      photos: [photo], // Store the file path in an array
+      title,
+      desc,
+      rating,
+      rooms,
+      cheapestPrice,
+      featured,
     });
+
+    const savedHotel = await newHotel.save();
+    res.status(200).json(savedHotel);
   } catch (err) {
     console.error("Error in createHotel:", err); // Log the error for debugging
     next(err);
   }
 };
-
 export const updateHotel = async (req, res, next) => {
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(
