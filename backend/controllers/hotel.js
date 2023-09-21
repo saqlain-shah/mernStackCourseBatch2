@@ -31,7 +31,7 @@ export const createHotel = async (req, res, next) => {
       city,
       address,
       distance,
-      photos: [photo], // Store the file path in an array
+      photos: [photo],
       title,
       desc,
       rating,
@@ -48,6 +48,7 @@ export const createHotel = async (req, res, next) => {
   }
 };
 export const updateHotel = async (req, res, next) => {
+  console.log("Request Body ", req.body);
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(
       req.params.id,
@@ -69,19 +70,24 @@ export const deleteHotel = async (req, res, next) => {
 };
 export const getHotel = async (req, res, next) => {
   try {
-    const hotel = await Hotel.findById(req.params.id);
+    const hotel = await Hotel.findById(req.params.id).populate('rooms')
+    if (!hotel) {
+      return res.status(404).json({ message: "Hotel not found" });
+    }
+
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
   }
 };
 export const getHotels = async (req, res, next) => {
+  console.log("Request Queries", req.query);
   const { min, max, ...others } = req.query;
+
   try {
-    const hotels = await Hotel.find({
-      ...others,
-      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
-    }).limit(req.query.limit);
+    const hotels = await Hotel.find().limit(req.query.limit);
+
+    // const HOTELS = await Hotel.find();
     res.status(200).json(hotels);
   } catch (err) {
     next(err);
