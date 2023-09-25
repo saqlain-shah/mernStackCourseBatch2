@@ -5,7 +5,7 @@ import fs from "fs";
 
 export const createHotel = async (req, res, next) => {
   try {
-    
+
     // Use Multer to handle image uploads
     upload.single('photos')(req, res, async function (err) {
       if (err) {
@@ -13,7 +13,7 @@ export const createHotel = async (req, res, next) => {
         console.error("Error uploading images:", err); // Log the error for debugging
         return res.status(500).json({ error: "Error uploading images" });
       }
-
+      
       // Continue only if there are no Multer upload errors
       try {
         // Get the file path of the uploaded image from req.file
@@ -32,6 +32,9 @@ export const createHotel = async (req, res, next) => {
           cheapestPrice,
           featured,
         } = req.body;
+
+        console.log("Request Body : ", req.body);
+        console.log("Request File : ", photo);
 
         const newHotel = new Hotel({
           name,
@@ -62,6 +65,7 @@ export const createHotel = async (req, res, next) => {
   }
 };
 export const updateHotel = async (req, res, next) => {
+  console.log("Request Body ", req.body);
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(
       req.params.id,
@@ -83,19 +87,25 @@ export const deleteHotel = async (req, res, next) => {
 };
 export const getHotel = async (req, res, next) => {
   try {
-    const hotel = await Hotel.findById(req.params.id);
+    const hotel = await Hotel.findById(req.params.id).populate('rooms');
+
+    if (!hotel) {
+      return res.status(404).json({ message: "Hotel not found" });
+    }
+
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
   }
 };
 export const getHotels = async (req, res, next) => {
+  console.log("Request Queries", req.query);
   const { min, max, ...others } = req.query;
+
   try {
-    const hotels = await Hotel.find({
-      ...others,
-      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
-    }).limit(req.query.limit);
+    const hotels = await Hotel.find().limit(req.query.limit);
+
+    // const HOTELS = await Hotel.find();
     res.status(200).json(hotels);
   } catch (err) {
     next(err);
@@ -142,10 +152,8 @@ export const getHotelRooms = async (req, res, next) => {
         return Room.findById(room);
       })
     );
-    res.status(200).json(list)
+    res.status(200).json(list);
   } catch (err) {
     next(err);
   }
 };
-
-
