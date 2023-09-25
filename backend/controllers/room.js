@@ -43,7 +43,8 @@ export const updateRoom = async (req, res, next) => {
 };
 export const updateRoomAvailability = async (req, res, next) => {
   try {
-    await Room.updateOne(
+    console.log("Change Availaibilty Date", req.body.dates);
+    const room = await Room.updateOne(
       { "roomNumbers._id": req.params.id },
       {
         $push: {
@@ -51,6 +52,9 @@ export const updateRoomAvailability = async (req, res, next) => {
         },
       }
     );
+    if (!room) {
+      res.status(404).json("Room ID is not Valid .");
+    }
     res.status(200).json("Room status has been updated.");
   } catch (err) {
     next(err);
