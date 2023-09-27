@@ -6,7 +6,8 @@ import cors from "cors";
 import authRoute from "./routes/AuthRoute.js";
 import usersRoute from "./routes/UsersRoute.js";
 import hotelRoute from "./routes/HotelRoute.js";
-import RoomRoute from "./routes/RoomRoute.js";
+import roomRoute from "./routes/RoomRoute.js";
+import bookingRoute from "./routes/BookingRoute.js"
 
 
 const app = express();
@@ -33,7 +34,8 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotel", hotelRoute);
-app.use("/api/room", RoomRoute);
+app.use("/api/room", roomRoute);
+app.use("/api/booking", bookingRoute);
 
 
 app.listen(process.env.PORT, () => {

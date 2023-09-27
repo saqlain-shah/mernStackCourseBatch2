@@ -3,27 +3,19 @@ import Hotel from "../models/Hotel.js";
 import { createError } from "../utils/error.js";
 
 export const createRoom = async (req, res, next) => {
-  const { hotelid } = req.params;
-  const roomDetails = req.body;
+  const hotelId = req.params.hotelid;
+  const newRoom = new Room(req.body);
 
   try {
-    // Check if the hotel exists by querying it
-    const existingHotel = await Hotel.findById(hotelid);
-
-    if (!existingHotel) {
-      // If the hotel doesn't exist, throw an error
-      throw new Error("Hotel with the provided ID does not exist.");
-    }
-
-    // Create a new room associated with the hotel
-    const newRoom = new Room({
-      ...roomDetails,
-      hotelId: hotelid,
-    });
-
     const savedRoom = await newRoom.save();
-
-    res.status(201).json(savedRoom);
+    try {
+      await Hotel.findByIdAndUpdate(hotelId, {
+        $push: { rooms: savedRoom },
+      });
+    } catch (err) {
+      next(err);
+    }
+    res.status(200).json(savedRoom);
   } catch (err) {
     next(err);
   }
