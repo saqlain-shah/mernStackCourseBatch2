@@ -1,0 +1,41 @@
+.card-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    width: 100%;
+    min-width: 25%;
+    max-width: 200px;
+    height: 200px;
+    background-color: #eee;
+    margin: 12px;
+  }
+  
+  @media (min-width: 768px) {
+    .card-view {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .card {
+      width: calc(25% - 24px);
+      max-width: none;
+      margin-left: 12px;
+    }
+  
+    .card:last-child {
+      margin-right: 0;
+    }
+  }
+  
+
+  .error-message {
+    color: red; /* Display error message in red color */
+    margin-top: 4px; /* Add some space between the input and error message */
+    margin-bottom: 10px;
+  }
+  
+  
