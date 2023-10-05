@@ -17,8 +17,9 @@ import Home from "./components/React-Router-Dom/Home";
 import About from "./components/React-Router-Dom/About";
 import Services from "./components/React-Router-Dom/Services";
 import Contact from "./components/React-Router-Dom/Contact";
-import Login from "./components/React-Router-Dom/Login";
-import SignUp from "./components/React-Router-Dom/SignUp";
+import SignInForm from "./components/Api/SignIn";
+import SignUpForm from "./components/Api/SignUp";
+import CreateHotel from "./components/Api/CreateHotel";
 
 
 
@@ -34,13 +35,13 @@ function App() {
         </Box>
       </Container> */}
       <Routes>
-        <Route path="/" Component={Home}/>
+        {/* <Route path="/" Component={Home}/>
         <Route path="/About" Component={About}/>
-        <Route path="/Contact" Component={Contact}/>
-        <Route path="/Services" Component={Services}/>
-        <Route path="/Login" Component={Login}/>
-        <Route path="/SignUp" Component={SignUp}/>
-        <Route path="/Table" Component={Table}/>
+        <Route path="/Contact" Component={Contact}/> */}
+        <Route path="/create-hotel" element={<CreateHotel/>}/>
+        <Route path="/Login" element={<SignInForm/>}/>
+        <Route path="/SignUp" element={<SignUpForm/>}/>
+        {/* <Route path="/Table" Component={Table}/> */}
       </Routes>
       
     </React.Fragment>

@@ -6,6 +6,10 @@ import fs from "fs";
 export const createHotel = async (req, res, next) => {
   try {
 
+    console.log("Request Body", req.body)
+    console.log("Request file ", req.file);
+
+
     // Use Multer to handle image uploads
     upload.single('photos')(req, res, async function (err) {
       if (err) {
@@ -13,7 +17,7 @@ export const createHotel = async (req, res, next) => {
         console.error("Error uploading images:", err); // Log the error for debugging
         return res.status(500).json({ error: "Error uploading images" });
       }
-      
+
       // Continue only if there are no Multer upload errors
       try {
         // Get the file path of the uploaded image from req.file
@@ -66,6 +70,8 @@ export const createHotel = async (req, res, next) => {
 };
 export const updateHotel = async (req, res, next) => {
   console.log("Request Body ", req.body);
+  console.log("Request file ", req.file);
+
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(
       req.params.id,
@@ -87,12 +93,7 @@ export const deleteHotel = async (req, res, next) => {
 };
 export const getHotel = async (req, res, next) => {
   try {
-    const hotel = await Hotel.findById(req.params.id).populate('rooms');
-
-    if (!hotel) {
-      return res.status(404).json({ message: "Hotel not found" });
-    }
-
+    const hotel = await Hotel.findById(req.params.id);
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
