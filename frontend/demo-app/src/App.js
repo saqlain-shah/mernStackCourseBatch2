@@ -4,15 +4,15 @@ import Home from "./components/React-Router-Dom/Home";
 import About from "./components/React-Router-Dom/About";
 import Services from "./components/React-Router-Dom/Services";
 import Contact from "./components/React-Router-Dom/Contact";
-import Navbar from "./components/React-Router-Dom/Navbar";
+//import Navbar from "./components/React-Router-Dom/Navbar";
+import Auth from "./components/Api/Auth";
 const App = () => {
   return (
     <React.Fragment>
       <Router>
-        <Navbar />
-
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Auth />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
