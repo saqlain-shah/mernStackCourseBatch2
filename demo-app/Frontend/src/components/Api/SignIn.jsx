@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextField, Grid, Typography, Container} from '@mui/material';
+import { Button, TextField, Grid, Typography, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import SignUpForm from './SignUp';
 import axios from 'axios'
@@ -15,12 +15,12 @@ const SignInForm = () => {
     };
 
     axios.post(apiUrl, user)
-      .then((response) => {
-        console.log('Login successful!', response);
-      })
-      .catch((error) => {
+
+
+    .catch((error) => {
         console.error('Error logging in:', error);
       });
+
   };
 
   return (

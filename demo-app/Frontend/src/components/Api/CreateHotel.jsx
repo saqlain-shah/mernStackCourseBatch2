@@ -30,6 +30,8 @@ const CreateHotel = () => {
         try {
             const apiUrl = 'http://localhost:8000/api/hotel/';
 
+
+
             const newFormData = new FormData();
             newFormData.append('name', formData.name);
             newFormData.append('type', formData.type);
@@ -56,10 +58,30 @@ const CreateHotel = () => {
                 photos: formData.photos,
             };
 
-
-
+            // var token=JSON.stringify({
+            //     "token":"some token content"
+            //   });
+            //   res.header('Access-Control-Allow-Origin', "http://127.0.0.1:3000");
+            //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            //   res.header( 'Access-Control-Allow-Credentials',true);
+            function getCookie(name) {
+                const cookies = document.cookie.split("; ");
+                console.log("Cookies ", cookies)
+                for (const cookie of cookies) {
+                    const [cookieName, cookieValue] = cookie.split("=");
+                    if (cookieName === name) {
+                        return cookieValue;
+                    }
+                    console.log("cookieName" ,cookieName)
+                    console.log("cookieValue" ,cookieValue)
+                }
+                return null;
+            }
+            const token = getCookie('access_token');
+            const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjNkYzY3YTg2NzNjNDU0ZDBiZDQ4ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5Njg1MzI3Mn0.jlz5bSn3v3H7i_wMBgyZRdiZZlG-7t-Tr2iF--8Q4-s'
             const response = await axios.post(apiUrl, hotel, {
                 headers: {
+                    'authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
                 },
             });
