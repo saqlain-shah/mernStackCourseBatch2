@@ -21,7 +21,7 @@ import SignInForm from "./components/Api/SignIn";
 import SignUpForm from "./components/Api/SignUp";
 import CreateHotel from "./components/Api/CreateHotel";
 
-
+import Auth from "./components/Api/Auth"
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
         {/* <Route path="/" Component={Home}/>
         <Route path="/About" Component={About}/>
         <Route path="/Contact" Component={Contact}/> */}
+        <Route path="/auth" element={<Auth/>}/>
         <Route path="/create-hotel" element={<CreateHotel/>}/>
         <Route path="/Login" element={<SignInForm/>}/>
         <Route path="/SignUp" element={<SignUpForm/>}/>

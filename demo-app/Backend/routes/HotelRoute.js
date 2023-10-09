@@ -15,7 +15,7 @@ import upload from "../utils/multer.js";
 const router = express.Router();
 
 //CREATE
-router.post("/", createHotel);
+router.post("/", verifyAdmin, createHotel);
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateHotel);
@@ -26,7 +26,7 @@ router.delete("/:id", verifyAdmin, deleteHotel);
 router.get("/find/:id", getHotel);
 //GET ALL
 
-router.get("/", getHotels);
+router.get("/hotels", getHotels);
 router.get("/countByCity", countByCity);
 router.get("/countByType", countByType);
 router.get("/room/:id", getHotelRooms);
