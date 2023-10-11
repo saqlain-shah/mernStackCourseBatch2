@@ -144,6 +144,3 @@ export const booking = async (req, res, next) => {
     next(err);
   }
 };
-
-
-

@@ -1,40 +1,70 @@
-# MERN Stack Course Repository
+# Getting Started with Create React App
 
-Welcome to the **MERN Stack Course** repository presented by Aufklarung and Rinor in Skardu. This repository serves as a central hub for all course materials, code examples, and other helpful resources. It also encourages active participation from trainees by allowing them to push their daily practices and other related content.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Branches
+## Available Scripts
 
-The repository contains the following branches:
+In the project directory, you can run:
 
-- `main`: The main branch that contains the stable and tested versions of the course materials. Trainees should refer to this branch for the official course content.
-- `assigments`: The development branch where trainees can collaborate and push their daily practices, experiments, and other related code. It is the branch for ongoing work and discussions.
+### `npm start`
 
-## Course Materials
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The course materials are organized in a structured manner for easy navigation. Below is an overview of the different directories and files present in this repository:
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- **lectures/**: This directory contains all the lecture slides and accompanying notes. Each lecture has its own folder with relevant materials.
-- **code-examples/**: Trainees can find various code examples discussed during the lectures or provided as additional resources. These examples can help reinforce the concepts taught in the course.
-- **exercises/**: This directory includes exercise files for trainees to practice what they've learned. The exercises are categorized by topic or module, making it easier to find specific practice materials.
-- **resources/**: Supplementary resources such as helpful articles, tutorials, and reference guides are placed in this directory. Trainees can explore these materials to deepen their understanding of MERN stack development.
+### `npm test`
 
-## Contributing
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Trainees are encouraged to actively participate and contribute to the repository. Here's how you can get involved:
+### `npm run build`
 
-1. Fork the repository to your GitHub account.
-2. Create a new branch based on the topic or task you want to work on.
-3. Make necessary changes, add your code, or create new materials.
-4. Commit your changes and push them to your branch.
-5. Once you're ready, create a pull request to merge your branch into the `development` branch.
-6. The course instructors and fellow trainees will review your changes and provide feedback if necessary.
-7. Collaborate and engage in discussions related to the course by participating in pull requests, issues, and discussions on GitHub.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Contact Information
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-If you have any questions or need assistance regarding the course or this repository, you can reach out to the course instructors:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- Saqlain Shah: [saqlainshahbaltee@gmail.com](mailto:saqlainshahbaltee@gmail.com)
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-We are excited to have you as part of the first batch of the MERN Stack Course, and we hope this repository serves as a valuable resource throughout your learning journey. **Happy coding!**
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
