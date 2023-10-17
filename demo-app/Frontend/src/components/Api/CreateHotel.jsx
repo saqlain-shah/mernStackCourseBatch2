@@ -1,10 +1,11 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+
 import axios from 'axios'
 // import parseCookies from "cookie-parser";
 
@@ -57,31 +58,14 @@ const CreateHotel = () => {
                 featured: formData.featured,
                 photos: formData.photos,
             };
-
-            // var token=JSON.stringify({
-            //     "token":"some token content"
-            //   });
-            //   res.header('Access-Control-Allow-Origin', "http://127.0.0.1:3000");
-            //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            //   res.header( 'Access-Control-Allow-Credentials',true);
-            function getCookie(name) {
-                const cookies = document.cookie.split("; ");
-                console.log("Cookies ", cookies)
-                for (const cookie of cookies) {
-                    const [cookieName, cookieValue] = cookie.split("=");
-                    if (cookieName === name) {
-                        return cookieValue;
-                    }
-                    console.log("cookieName" ,cookieName)
-                    console.log("cookieValue" ,cookieValue)
-                }
-                return null;
-            }
-            const token = getCookie('access_token');
+            
+           
+            // const token = JSON.parse(localStorage.getItem('access_token'));
             const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjNkYzY3YTg2NzNjNDU0ZDBiZDQ4ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5Njg1MzI3Mn0.jlz5bSn3v3H7i_wMBgyZRdiZZlG-7t-Tr2iF--8Q4-s'
             const response = await axios.post(apiUrl, hotel, {
+                withCredentials:true,
                 headers: {
-                    'authorization': `Bearer ${token}`,
+                    // 'authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
                 },
             });

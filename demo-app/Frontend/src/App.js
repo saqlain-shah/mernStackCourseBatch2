@@ -20,8 +20,9 @@ import Contact from "./components/React-Router-Dom/Contact";
 import SignInForm from "./components/Api/SignIn";
 import SignUpForm from "./components/Api/SignUp";
 import CreateHotel from "./components/Api/CreateHotel";
-
 import Auth from "./components/Api/Auth"
+
+import { analytics } from "./Firebase.config";
 
 function App() {
   return (

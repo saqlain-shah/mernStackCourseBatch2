@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import { Button, TextField, Grid, Typography, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
-import SignUpForm from './SignUp';
+// import SignUpForm from './SignUp';
 import axios from 'axios'
+// import { auth } from "../../Firebase.config";
+
 const SignInForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     const apiUrl = 'http://localhost:8000/api/auth/login/';
     const user = {
       username: username,
       password: password,
     };
 
-    axios.post(apiUrl, user)
+    const response = await axios.post(apiUrl, user, {
+      withCredentials: true
+    });
 
+    console.log(response.data);
 
-    .catch((error) => {
-        console.error('Error logging in:', error);
-      });
+    if (response.data.details) {
+      alert("user login success fully")
+    }
 
   };
 
