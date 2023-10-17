@@ -17,7 +17,7 @@ const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_ATLAS);
         console.log("Connected to mongoDB.");
-    } catch  {
+    } catch {
         console.log("Connection Error");
     }
 };
@@ -27,10 +27,11 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middlewares
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
+//Routes
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotel", hotelRoute);
@@ -42,5 +43,4 @@ app.listen(process.env.PORT, () => {
     connect();
     console.log(`server listen on port ${process.env.PORT}`);
     console.log("Connected to backend.");
-  });
-  
+});

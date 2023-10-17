@@ -6,8 +6,8 @@ import fs from "fs";
 export const createHotel = async (req, res, next) => {
   try {
 
-    console.log("Request Body", req.body)
-    console.log("Request file ", req.file);
+    // console.log("Request Body", req.body)
+    // console.log("Request file ", req.file);
 
 
     // Use Multer to handle image uploads
@@ -22,6 +22,7 @@ export const createHotel = async (req, res, next) => {
       try {
         // Get the file path of the uploaded image from req.file
         const photo = req.file.path;
+        console.log("photo path", photo)
 
         const {
           name,
@@ -36,9 +37,6 @@ export const createHotel = async (req, res, next) => {
           cheapestPrice,
           featured,
         } = req.body;
-
-        console.log("Request Body : ", req.body);
-        console.log("Request File : ", photo);
 
         const newHotel = new Hotel({
           name,
