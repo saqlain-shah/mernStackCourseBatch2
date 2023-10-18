@@ -5,19 +5,18 @@ import {
   bookingSearch,
   checkOut,
 } from "../controllers/bookings.js";
-import { verifyUser } from "../utils/verifyToken.js";
 const router = express.Router();
 
 //Check In
-router.post("/", verifyUser, createBooking);
+router.post("/", createBooking);
 
 // //Booking List
-router.get("/list", verifyUser, bookingList);
+router.get("/list", bookingList);
 
 // //Search Booking By Id
-router.get("/search/:id", verifyUser, bookingSearch);
+router.get("/search/:id",  bookingSearch);
 
 // //Check Out
-router.delete("/checkout/:id", verifyUser, checkOut);
+router.delete("/checkout/:id", checkOut);
 
 export default router;
