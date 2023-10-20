@@ -119,11 +119,6 @@ function Register() {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography variant="body2" align="center">
-                                    <Link to="/forgot-password">Forgot Password?</Link>
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="body2" align="center">
                                     I have an Account!
                                     <Link to="/login" variant="body2">
                                         {" Login "}

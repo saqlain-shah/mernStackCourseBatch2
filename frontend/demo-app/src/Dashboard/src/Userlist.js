@@ -21,8 +21,8 @@ function Userlist() {
       const users = await axios.get(apiUrl,{withCredentials:true})
       // setUserList(users.data.data)
       .then((users)=>{
-        setUserList(users.data.data);
-        console.log(users.data.data)
+        setUserList(users.data);
+        console.log(users.data)
       })
       .then(()=>{
         setLoading(false);  
@@ -39,7 +39,7 @@ function Userlist() {
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete the data?");
       if (confirmDelete) {
-        await axios.delete(`${apiUrl}:${id}`);
+        await axios.delete(`${apiUrl}${id}`);
         getUsers();
       }
     } catch (error) {
@@ -50,7 +50,7 @@ function Userlist() {
 
   const columns = [
     // { field: 'id', headerName: 'ID', flex: 1 },
-    { field: 'username', headerName: 'Name', flex: 1 },
+    { field: 'username', headerName: 'Username', flex: 1 },
     { field: 'email', headerName: 'E-Mail', flex: 1 },
     { field: 'isAdmin', headerName: 'IsAdmin', flex: 1 },
     {

@@ -16,20 +16,18 @@ function Login() {
             username: username,
             password: password,
         };
-
-        const response = await axios.post(apiUrl, user, {
-            withCredentials: true
-        })
-            .then((response) => {
-                console.log(response.data);
-                if (response.data.details) {
-                    alert("user login success fully");
-
-                }
+        try {
+            await axios.post(apiUrl, user, {
+                withCredentials: true
             });
-        Navigate('/portal/dashboard');
-    };
-    return (
+    
+            alert("User login successful");
+            Navigate('/portal/dashboard');
+        } catch (error) {
+            console.error(error);
+        }
+    };   
+  return (
         <Container
             sx={{
                 display: 'flex',
@@ -79,34 +77,6 @@ function Login() {
                                 >
                                     Login
                                 </Button>
-                            </Grid>
-
-                            <Grid item xs={8}>
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    sx={{ backgroundColor: '#DB4437', color: '#fff', borderRadius: '25px', mt: 2, ml: 10, mr: 5 }}
-                                    startIcon={<i className="fab fa-google fa-fw" />}
-                                    href="index.html"
-
-                                >
-                                    Login with Google
-                                </Button>
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    sx={{ backgroundColor: '#1877F2', color: '#fff', borderRadius: '25px', mt: 2, ml: 10, mr: 5 }}
-                                    startIcon={<i className="fab fa-facebook-f fa-fw" />}
-                                    href="index.html"
-
-                                >
-                                    Login with Facebook
-                                </Button>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="body2" align="center">
-                                    <a href="forgot-password.html">Forgot Password?</a>
-                                </Typography>
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography variant="body2" align="center">

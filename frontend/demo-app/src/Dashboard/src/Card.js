@@ -15,6 +15,7 @@ function Card({ title, value, color }) {
                             <div className="h5 mb-0 font-weight-bold text-gray-800">
                                 {value}
                             </div>
+                            <div>dashboard</div>
                         </div>
                         <div className="col-auto">
                             <FontAwesomeIcon icon={faCalendar} size={"2x"} style={{ color: "#dddfeb" }} />
