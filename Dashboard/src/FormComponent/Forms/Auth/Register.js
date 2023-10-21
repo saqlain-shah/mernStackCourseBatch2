@@ -10,6 +10,7 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const Navigate = useNavigate();
+
     const handleRegister = () => {
         const apiUrl = 'http://localhost:8000/api/auth/register/?{id}'
         const user = {

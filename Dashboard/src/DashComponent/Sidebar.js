@@ -2,7 +2,7 @@ import { faBook, faHotel, faTachographDigital, faUsers } from '@fortawesome/free
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import LOGO from "./component/logo.png"
+import LOGO from "../DashComponent/logo.png"
 function Sidebar() {
     return (
         <ul className="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -36,7 +36,7 @@ function Sidebar() {
                 </Link>
             </li>
             <li className="nav-item active">
-                <Link className="nav-link" to="/portal/user-list">
+                <Link className="nav-link" to="/portal/booking-list">
                     <FontAwesomeIcon icon={faBook} style={{ marginRight: "0.5rem" }} />
                     <span>Booking</span>
                 </Link>

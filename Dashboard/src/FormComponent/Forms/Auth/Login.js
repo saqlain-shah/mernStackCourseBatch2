@@ -22,7 +22,7 @@ function Login() {
             });
     
             alert("User login successful");
-            Navigate('/portal/dashboard');
+            Navigate('dashboard');
         } catch (error) {
             console.error(error);
         }

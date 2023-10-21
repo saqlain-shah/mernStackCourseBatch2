@@ -10,7 +10,6 @@ function HotelList() {
   const [isLoading, setLoading] = useState(true);
 
   const apiUrl = 'http://localhost:8000/api/hotel/';
-
   useEffect(() => {
     getHotels();
   }, []);
@@ -52,16 +51,19 @@ function HotelList() {
   ]; 
 
   let handleDelete = async (id) => {
+    const deleteUrl = `${apiUrl}/${id}`; 
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete the data?");
       if (confirmDelete) {
-        await axios.delete(`${apiUrl}${id}`);
+        await axios.delete(deleteUrl);
         getHotels();
       }
     } catch (error) {
       console.error(error);
     }
   }
+  
+  
 
   return (
     <div className="hotel-list-container">

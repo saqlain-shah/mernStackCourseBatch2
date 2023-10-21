@@ -19,22 +19,13 @@ function Userlist() {
   let getUsers = async () => {
     try {
       const users = await axios.get(apiUrl,{withCredentials:true})
-      // setUserList(users.data.data)
-      .then((users)=>{
         setUserList(users.data);
-        console.log(users.data)
-      })
-      .then(()=>{
-        setLoading(false);  
-    
-      })
-      
-      
+        setLoading(false);
+        console.log(users.data)    
     } catch (error) {
       console.log(error);
     }
   }
-
   let handleDelete = async (id) => {
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete the data?");
