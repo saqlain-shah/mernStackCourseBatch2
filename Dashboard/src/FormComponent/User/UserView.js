@@ -11,7 +11,7 @@ function UserView() {
   useEffect(() => {
     // On Load
     getUsers();
-  }, []);
+  }, );
 
   const getUsers = async () => {
     try {

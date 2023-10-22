@@ -15,31 +15,36 @@ dotenv.config();
 const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_ATLAS);
-        console.log("Connected to mongoDB.");
-    } catch {
-        console.log("Connection Error");
+        console.log("Connected to MongoDB Successfully.");
+    } catch (error) {
+        console.error("Connection Error:", error);
     }
 };
 
 mongoose.connection.on("disconnected", () => {
-    console.log("mongoDB disconnected!");
+    console.log("MongoDB disconnected!");
 });
 
-//middlewares
+// Middlewares
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
-//Routes
+// Define error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
+
+// Routes
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/hotel', hotelRoute);
 app.use('/api/room', roomRoute);
 app.use('/api/booking', bookingRoute);
 
-
 app.listen(process.env.PORT, () => {
     connect();
-    console.log(`server listen on port ${process.env.PORT}`);
-    console.log("Connected to backend.");
+    console.log(`Server is listening on port ${process.env.PORT}`);
+    console.log("Connected to the backend.");
 });

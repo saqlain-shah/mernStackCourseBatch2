@@ -13,7 +13,7 @@ function Userlist() {
 
   useEffect(() => {
     getUsers();
-    console.log("welcome");
+    console.log("welcome to user list");
   }, []);
 
   let getUsers = async () => {
@@ -40,7 +40,6 @@ function Userlist() {
   const getRowId = (row) => row._id;
 
   const columns = [
-    // { field: 'id', headerName: 'ID', flex: 1 },
     { field: 'username', headerName: 'Username', flex: 1 },
     { field: 'email', headerName: 'E-Mail', flex: 1 },
     { field: 'isAdmin', headerName: 'IsAdmin', flex: 1 },

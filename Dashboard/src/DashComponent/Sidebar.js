@@ -42,7 +42,7 @@ function Sidebar() {
                 </Link>
             </li>
             <li className="nav-item active">
-                <Link className="nav-link" to="/portal/user-list">
+                <Link className="nav-link" to="/portal/rooms-list">
                     <FontAwesomeIcon icon={faBook} style={{ marginRight: "0.5rem" }} />
                     <span>Rooms</span>
                 </Link>

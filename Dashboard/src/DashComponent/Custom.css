@@ -1,0 +1,24 @@
+.navbar{
+    height: 40px;
+    font-size: 10px;
+    background-color: rgb(89, 21, 158);
+}hHhH
+
+
+
+
+
+
+
+H
+hhhh
+ .navbar .form-control{
+    background-color: rgb(212, 206, 219);
+ }
+ .navbar .form-control:hover{
+    background-color: aliceblue;
+ }
+ .navbar .form-control:focus{
+    cursor: pointer;
+ }
+ 

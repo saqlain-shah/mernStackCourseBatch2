@@ -20,7 +20,7 @@ function UserEdit() {
     }
     useEffect(() => {
         getUserData()
-    }, [])
+    },)
 
     const myFormik = useFormik({
         initialValues: {

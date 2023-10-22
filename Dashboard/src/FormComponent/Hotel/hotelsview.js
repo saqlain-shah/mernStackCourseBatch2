@@ -50,7 +50,7 @@ function HotelView() {
     // On Load
     getHotelDetails();
     console.log("Welcome to Hotel View");
-  }, []);
+  },);
 
   const getHotelDetails = async () => {
     try {

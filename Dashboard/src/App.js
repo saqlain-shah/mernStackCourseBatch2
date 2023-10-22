@@ -10,6 +10,8 @@ import Register from './FormComponent/Forms/Auth/Register';
 import HotelEdit from './FormComponent/Hotel/Hoteledit';
 import HotelList from './FormComponent/Hotel/hotellist';
 import HotelView from './FormComponent/Hotel/hotelsview';
+import RoomList from './FormComponent/Rooms/RoomList';
+import RoomView from './FormComponent/Rooms/RoomView';
 import UserView from './FormComponent/User/UserView';
 import Userlist from './FormComponent/User/Userlist';
 import "./sb-admin-2.min.css";
@@ -32,6 +34,8 @@ function App() {
         <Route path='portal/user-view/:id' element={<UserView/>} />
         <Route path='portal/user-edit/:id' element={<UserEdit/>} />
         <Route path='portal/booking-list' element={<BookingList/>} />
+        <Route path='portal/rooms-list' element={<RoomList/>} />
+        <Route path='/portal/room-view/:id' element={<RoomView/>} />
     </Routes>
   );
 }
