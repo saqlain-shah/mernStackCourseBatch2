@@ -23,8 +23,6 @@ export const register = async (req, res, next) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-
-
     if (!user) {
       return res.status(404).send({ success: false, message: "Username or password is incorrect" })
     }

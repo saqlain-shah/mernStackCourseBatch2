@@ -10,7 +10,6 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const Navigate = useNavigate();
-
     const handleRegister = () => {
         const apiUrl = 'http://localhost:8000/api/auth/register/?{id}'
         const user = {
@@ -116,11 +115,6 @@ function Register() {
                                 >
                                     Register
                                 </Button>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Typography variant="body2" align="center">
-                                    <Link to="/forgot-password">Forgot Password?</Link>
-                                </Typography>
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography variant="body2" align="center">
