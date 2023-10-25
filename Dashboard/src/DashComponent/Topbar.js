@@ -3,7 +3,6 @@ import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Custom.css';
 function Topbar() {
     return (
         <nav className="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow">

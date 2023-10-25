@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Card, CardContent, CircularProgress, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+
 const useStyles = makeStyles({
   hotelViewContainer: {
     display: 'flex',
@@ -38,6 +39,15 @@ const useStyles = makeStyles({
     fontSize: 16,
     margin: '8px 0',
   },
+  photosContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  photoThumbnail: {
+    maxWidth: '100px',
+    maxHeight: '100px',
+    margin: '8px',
+  },
 });
 
 function HotelView() {
@@ -47,33 +57,38 @@ function HotelView() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    // On Load
     getHotelDetails();
     console.log("Welcome to Hotel View");
-  },);
+  }, []);
 
   const getHotelDetails = async () => {
     try {
       const response = await axios.get(`http://localhost:8000/api/hotel/${params.id}`, { withCredentials: true });
+      console.log("API Response:", response.data); 
       setHotel(response.data);
       setLoading(false);
     } catch (error) {
       console.error(error);
     }
   }
+  
 
   return (
     <div className={classes.hotelViewContainer}>
       <Card className={classes.hotelViewContent}>
         <CardContent>
-          <Typography variant="h4" className={classes.title}>Hotel Details</Typography>
+          <Typography variant="h4" className={classes.title}>
+            Hotel Details
+          </Typography>
           {isLoading ? (
             <div className={classes.loadingSpinner}>
               <CircularProgress />
             </div>
           ) : (
             <>
-              <Typography variant="h5" className={classes.hotelName}>{hotel.name}</Typography>
+              <Typography variant="h5" className={classes.hotelName}>
+                {hotel.name}
+              </Typography>
               <Typography className={classes.details}><strong>Type:</strong> {hotel.type}</Typography>
               <Typography className={classes.details}><strong>City:</strong> {hotel.city}</Typography>
               <Typography className={classes.details}><strong>Address:</strong> {hotel.address}</Typography>
@@ -82,6 +97,29 @@ function HotelView() {
               <Typography className={classes.details}><strong>Description:</strong> {hotel.desc}</Typography>
               <Typography className={classes.details}><strong>Cheapest Price:</strong> {hotel.cheapestPrice}</Typography>
               <Typography className={classes.details}><strong>Featured:</strong> {hotel.featured ? 'Yes' : 'No'}</Typography>
+
+              {/* Display Rooms */}
+              <Typography className={classes.details}>
+                <strong>Rooms:</strong> {hotel.rooms.join(', ')}
+              </Typography>
+
+              {/* Display Photos */}
+              <div className={classes.details}>
+                <strong>Photos:</strong>
+                <div className={classes.photosContainer}>
+                  {hotel.photos.map((photo, index) => (
+                    <img
+                      key={index}
+                      src={`http://localhost:8000${photo}`}
+                      alt={`Photo ${index}`}
+                      className={classes.photoThumbnail}
+                      onError={(e) => {
+                        e.target.src = 'logo.png'; // Display a fallback image in case of an error.
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
             </>
           )}
         </CardContent>

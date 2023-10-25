@@ -1,0 +1,47 @@
+/* Sidebar Container */
+.navbar-nav.sidebar {
+  background-color: #333;
+  width: 250px;
+  padding-top: 20px;
+  color: #fff;
+}
+
+/* Logo Image */
+.navbar-nav.sidebar img {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+/* Divider Line */
+.sidebar-divider {
+  background-color: #fff;
+}
+
+/* Nav Items */
+.nav-item {
+  padding: 10px 0;
+}
+
+/* Active Nav Item */
+.nav-item.active {
+  background-color: #555;
+}
+
+/* Nav Link */
+.nav-link {
+  color: #fff;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #ffca28;
+}
+
+/* FontAwesome Icon */
+.nav-link .fa-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+

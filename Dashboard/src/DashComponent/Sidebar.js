@@ -1,6 +1,7 @@
 import { faBook, faHotel, faTachographDigital, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import './App.css'
 import { Link } from 'react-router-dom'
 import LOGO from "../DashComponent/logo.png"
 function Sidebar() {

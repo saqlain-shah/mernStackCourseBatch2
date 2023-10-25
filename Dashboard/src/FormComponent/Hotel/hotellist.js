@@ -9,15 +9,14 @@ function HotelList() {
   const [hotelList, setHotelList] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  const apiUrl = 'http://localhost:8000/api/hotel/';
   useEffect(() => {
     getHotels();
   }, []);
 
-  let getHotels = async () => {
+  const getHotels = async () => {
     try {
-      const hotels = await axios.get(apiUrl, { withCredentials: true });
-      setHotelList(hotels.data);
+      const response = await axios.get('http://localhost:8000/api/hotel'); // Assuming you have set up your API route appropriately
+      setHotelList(response.data);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -37,6 +36,34 @@ function HotelList() {
     { field: 'cheapestPrice', headerName: 'Cheapest Price', flex: 1 },
     { field: 'featured', headerName: 'Featured', flex: 1 },
     {
+      field: 'rooms',
+      headerName: 'Rooms',
+      flex: 1,
+      valueGetter: (params) => params.row.rooms.join(', '),
+    },
+    {
+      field: 'photos',
+      headerName: 'Photos',
+      flex: 3,
+      renderCell: (params) => (
+        <div className="photo-cell">
+          {params.row.photos.map((uploads, index) => (
+            <img
+              key={index}
+              src={`http://localhost:8000${uploads}`}
+              // Adjust the URL to your server's image path
+              alt={`Photo ${index}`}
+              className="photo-thumbnail"
+              onError={(e) => {
+                e.target.src = 'logo.png'; // Display a fallback image in case of an error.
+              }}
+            />
+          ))}
+        </div>
+      ),
+    },
+  
+    {
       field: 'actions',
       headerName: 'Actions',
       width: 200,
@@ -48,22 +75,19 @@ function HotelList() {
         </div>
       ),
     },
-  ]; 
+  ];
 
-  let handleDelete = async (id) => {
-    const deleteUrl = `${apiUrl}/${id}`; 
+  const handleDelete = async (id) => {
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete the data?");
       if (confirmDelete) {
-        await axios.delete(deleteUrl);
+        await axios.delete(`http://localhost:8000/api/hotel/${id}`); // Adjust the API route accordingly
         getHotels();
       }
     } catch (error) {
       console.error(error);
     }
   }
-  
-  
 
   return (
     <div className="hotel-list-container">
@@ -88,3 +112,7 @@ function HotelList() {
 }
 
 export default HotelList;
+
+
+
+

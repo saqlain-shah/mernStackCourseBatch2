@@ -1,91 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Card, CardContent, CircularProgress, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-const useStyles = makeStyles({
-  roomViewContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: 16,
-  },
-  roomViewContent: {
-    background: '#fff',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    borderRadius: 10,
-    padding: 16,
-    maxWidth: 600,
-    width: '80%',
-    transition: 'transform 0.3s',
-  },
-  loadingSpinner: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 100,
-  },
-  title: {
-    fontSize: 24,
-    color: '#333',
-  },
-  roomame: {
-    fontSize: 22,
-    color: '#333',
-    marginTop: 8,
-  },
-  details: {
-    fontSize: 16,
-    margin: '8px 0',
-  },
-});
+import { DataGrid } from '@mui/x-data-grid';
 
 function RoomView() {
-  const classes = useStyles();
-  const params = useParams();
-  const [room, setroom] = useState({});
+  const [room, setRoom] = useState({});
   const [isLoading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // On Load
-    getroomDetails();
-    console.log("Welcome to room View");
-  },);
+  const { id } = useParams();
 
-  const getroomDetails = async () => {
+  useEffect(() => {
+    getRoomDetails();
+  }, [id]);
+
+  const getRoomDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/room/${params.id}`, { withCredentials: true });
-      setroom(response.data);
+      const response = await axios.get(`http://localhost:8000/api/room/${id}`);
+      setRoom(response.data);
       setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const handleDelete = async (id) => {
+    try {
+      const confirmDelete = window.confirm("Are you sure you want to delete the room?");
+      if (confirmDelete) {
+        await axios.delete(`http://localhost:8000/api/room/${id}`);
+      }
     } catch (error) {
       console.error(error);
     }
   }
 
   return (
-    <div className={classes.roomViewContainer}>
-      <Card className={classes.roomViewContent}>
-        <CardContent>
-          <Typography variant="h4" className={classes.title}>room Details</Typography>
-          {isLoading ? (
-            <div className={classes.loadingSpinner}>
-              <CircularProgress />
+    <div className="room-view-container">
+      <div className="header">
+        <h1 className="h3 mb-0 text-gray-800">Room View</h1>
+      </div>
+      <div className="room-details">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            <h2>Title{room.title}</h2>
+            <p>Price: {room.price}</p>
+            <p>Max People: {room.maxPeople}</p>
+            <p>Description: {room.desc}</p>
+            <div>
+              <h3>Room Numbers</h3>
+              {room.roomNumbers.map((roomNumber) => (
+                <div key={roomNumber.number}>
+                  Number: {roomNumber.number}, Unavailable Dates: {roomNumber.unavailableDates.join(', ')}
+                </div>
+              ))}
             </div>
-          ) : (
-            <>
-              <Typography variant="h5" className={classes.roomame}>{room.name}</Typography>
-              <Typography className={classes.details}><strong>Type:</strong> {room.type}</Typography>
-              <Typography className={classes.details}><strong>City:</strong> {room.city}</Typography>
-              <Typography className={classes.details}><strong>Address:</strong> {room.address}</Typography>
-              <Typography className={classes.details}><strong>Distance:</strong> {room.distance}</Typography>
-              <Typography className={classes.details}><strong>Title:</strong> {room.title}</Typography>
-              <Typography className={classes.details}><strong>Description:</strong> {room.desc}</Typography>
-              <Typography className={classes.details}><strong>Cheapest Price:</strong> {room.cheapestPrice}</Typography>
-              <Typography className={classes.details}><strong>Featured:</strong> {room.featured ? 'Yes' : 'No'}</Typography>
-            </>
-          )}
-        </CardContent>
-      </Card>
+
+          </div>
+        )}
+        <div className="actions">
+          <Link to={`/portal/room-edit/${id}`} className='btn btn-info btn-sm'>Edit</Link>
+          <button onClick={() => handleDelete(id)} className='btn btn-danger btn-sm'>Delete</button>
+        </div>
+      </div>
     </div>
   );
 }

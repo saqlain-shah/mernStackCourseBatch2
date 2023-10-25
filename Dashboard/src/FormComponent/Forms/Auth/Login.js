@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container, Card, CardContent, TextField, Button, Grid, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loggedInUser, setLoggedInUser] = useState(null); // State to store the logged-in user
     const Navigate = useNavigate();
 
     const handleLogin = async () => {
@@ -17,29 +17,35 @@ function Login() {
             password: password,
         };
         try {
-            await axios.post(apiUrl, user, {
-                withCredentials: true
+            const response = await axios.post(apiUrl, user, {
+                withCredentials: true,
             });
-    
-            alert("User login successful");
-            Navigate('dashboard');
+
+            if (response.status === 200) {
+                // Set the logged-in user's name in state
+                setLoggedInUser(username);
+
+                alert("User login successful");
+                Navigate('/portal');
+            }
         } catch (error) {
             console.error(error);
         }
-    };   
-  return (
+    };
+
+    return (
         <Container
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100vh'
+                height: '100vh',
             }}
         >
             <Card sx={{ minWidth: 275 }}>
-                <CardContent >
+                <CardContent>
                     <Container maxWidth='sm'>
-                        <Grid container spacing={3} >
+                        <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Typography variant="h4" align="center">
                                     LOGIN
@@ -85,11 +91,33 @@ function Login() {
                                         {" Register "}
                                     </Link>
                                 </Typography>
+                              
+                            </Grid>
+
+                            <Grid item xs={8}>
+                                <Button
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    sx={{ borderRadius: '25px', ml: 10, mr: 5, mt: 5 }}
+                                    onClick={handleLogin}
+                                >
+                                    Login
+                                </Button>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography variant="body2" align="center">
+                                    Create an Account!
+                                    <Link to="/Register" variant="body2">
+                                        {" Register "}
+                                    </Link>
+                                </Typography>
                             </Grid>
                         </Grid>
                     </Container>
                 </CardContent>
             </Card>
+           
         </Container>
     );
 }
