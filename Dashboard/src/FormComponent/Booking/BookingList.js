@@ -4,10 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
-
-
-
-
 function BookingList() {
   const [bookingList, setBookingList] = useState([]);
   const [isLoading, setLoading] = useState(true);

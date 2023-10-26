@@ -8,6 +8,7 @@ import BookingList from './FormComponent/Booking/BookingList';
 import BookingView from './FormComponent/Booking/BookingView';
 import Login from './FormComponent/Forms/Auth/Login';
 import Register from './FormComponent/Forms/Auth/Register';
+import CreateHotel from './FormComponent/Hotel/CreateHotel';
 import HotelEdit from './FormComponent/Hotel/Hoteledit';
 import HotelList from './FormComponent/Hotel/hotellist';
 import HotelView from './FormComponent/Hotel/hotelsview';
@@ -26,7 +27,8 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/portal' element={<Portal/>} />
-        <Route path='portal/dashboard' element={<Dashboard/>}/> 
+        <Route path='portal/dashboard' element={<Dashboard/>}/>
+        <Route path='portal/hotel-list/portal/create-hotel' element={<CreateHotel/>} />
         <Route path='portal/hotel-list' element={<HotelList/>} />
         <Route path='portal/hotel-view/:id' element={<HotelView/>} />
         <Route path='portal/hotel-edit/:id' element={<HotelEdit/>} />

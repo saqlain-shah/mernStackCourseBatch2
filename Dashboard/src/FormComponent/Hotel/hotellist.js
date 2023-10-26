@@ -32,9 +32,7 @@ function HotelList() {
     { field: 'address', headerName: 'Address', flex: 1 },
     { field: 'distance', headerName: 'Distance', flex: 1 },
     { field: 'title', headerName: 'Title', flex: 1 },
-    { field: 'desc', headerName: 'Description', flex: 1 },
     { field: 'cheapestPrice', headerName: 'Cheapest Price', flex: 1 },
-    { field: 'featured', headerName: 'Featured', flex: 1 },
     {
       field: 'rooms',
       headerName: 'Rooms',
@@ -47,18 +45,7 @@ function HotelList() {
       flex: 3,
       renderCell: (params) => (
         <div className="photo-cell">
-          {params.row.photos.map((uploads, index) => (
-            <img
-              key={index}
-              src={`http://localhost:8000${uploads}`}
-              // Adjust the URL to your server's image path
-              alt={`Photo ${index}`}
-              className="photo-thumbnail"
-              onError={(e) => {
-                e.target.src = 'logo.png'; // Display a fallback image in case of an error.
-              }}
-            />
-          ))}
+          
         </div>
       ),
     },
@@ -93,12 +80,12 @@ function HotelList() {
     <div className="hotel-list-container">
       <div className="header">
         <h1 className="h3 mb-0 text-gray-800">Hotel List</h1>
-        <Link to="/portal/create-hotel" className="create-button">
+        <Link to="portal/create-hotel" className="create-button">
           <FontAwesomeIcon icon={faHotel} className="creatinghotel mr-2" />
           Create Hotel
         </Link>
       </div>
-      <div className="data-grid">
+      <div className="data-grid" style={{ height: 400, width: '100%', margin:'auto', backgroundColor:'white', marginTop:'50'}}>
         <DataGrid
           rows={hotelList}
           columns={columns}

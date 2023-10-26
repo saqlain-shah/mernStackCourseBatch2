@@ -39,7 +39,7 @@ function UserView() {
           {isLoading ? (
             <img src="https://media.giphy.com/media/ZO9b1ntYVJmjZlsWlm/giphy.gif" alt="Loading" />
           ) : (
-            <div className="table-responsive">
+            <div className="table-responsive" style={{ height: 400, width: '95%', margin:'auto', backgroundColor:'white', marginTop:'50'}}>
               <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                 <thead>
                   <tr>
