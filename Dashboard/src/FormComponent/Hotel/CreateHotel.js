@@ -148,7 +148,7 @@ const CreateHotel = () => {
                     onChange={handleChange}
                     margin="normal"
                 />
-              <TextField
+                <TextField
                     fullWidth
                     label="Cheapest Price"
                     name="cheapestPrice"
@@ -188,13 +188,7 @@ const CreateHotel = () => {
                         />
                     </div>
                 ))}
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={addRoom}
-                >
-                    Add Room
-                </Button>
+
                 <input
                     type="file"
                     accept="image/*"
@@ -202,7 +196,7 @@ const CreateHotel = () => {
                     multiple
                     onChange={handleChange}
                 />
-                <Box mt={2}>
+                <Box mt={2} mb={2}>
                     <Button
                         variant="contained"
                         color="primary"
@@ -213,8 +207,16 @@ const CreateHotel = () => {
                     </Button>
                 </Box>
             </Box>
-            <Link to="portal/hotel-list">
-                <Button variant="contained" color="primary">
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={addRoom}
+            >
+                Add Room
+            </Button>
+
+            <Link to="/portal/hotel-list">
+                <Button variant="contained" color="primary" style={{ marginLeft: '10px' }}>
                     View Hotel List
                 </Button>
             </Link>

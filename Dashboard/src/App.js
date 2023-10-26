@@ -28,7 +28,7 @@ function App() {
         <Route path='/register' element={<Register/>} />
         <Route path='/portal' element={<Portal/>} />
         <Route path='portal/dashboard' element={<Dashboard/>}/>
-        <Route path='portal/hotel-list/portal/create-hotel' element={<CreateHotel/>} />
+        <Route path='portal/create-hotel' element={<CreateHotel/>} />
         <Route path='portal/hotel-list' element={<HotelList/>} />
         <Route path='portal/hotel-view/:id' element={<HotelView/>} />
         <Route path='portal/hotel-edit/:id' element={<HotelEdit/>} />

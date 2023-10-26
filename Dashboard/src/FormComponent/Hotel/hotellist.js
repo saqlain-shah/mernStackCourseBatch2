@@ -80,7 +80,7 @@ function HotelList() {
     <div className="hotel-list-container">
       <div className="header">
         <h1 className="h3 mb-0 text-gray-800">Hotel List</h1>
-        <Link to="portal/create-hotel" className="create-button">
+        <Link to="/portal/create-hotel" className="create-button">
           <FontAwesomeIcon icon={faHotel} className="creatinghotel mr-2" />
           Create Hotel
         </Link>
