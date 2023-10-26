@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import pic from '../DashComponent/sad.jpg'
-function Topbar() {
+
+function Topbar({username}) {
     return (
         <nav className="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow">
             {/* <!-- Sidebar Toggle (Topbar) --> */}
             <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                 <FontAwesomeIcon icon={faBars} />
             </button>
-
             {/* <!-- Topbar Search --> */}
             <form
                 className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -25,7 +25,7 @@ function Topbar() {
                     </div>
                 </div>
             </form>
-
+          
             {/* <!-- Topbar Navbar --> */}
             <ul className="navbar-nav ml-auto">
 
@@ -171,17 +171,22 @@ function Topbar() {
                 </li>
 
                 <div className="topbar-divider d-none d-sm-block"></div>
-
+               
                 {/* <!-- Nav Item - User Information --> */}
                 <li className="nav-item dropdown no-arrow">
                     <Link className="nav-link dropdown-toggle" to="/" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img
-            style={{height:'40px', borderRadius:'50%'}}
-                src={pic} alt='logo'
-            />
+                            style={{ height: '40px', borderRadius: '50%' }}
+                            src={pic} alt='logo'
+                        />
                         {/* <FontAwesomeIcon icon={faCircleUser} size={"xl"} /> */}
                     </Link>
+                    <div className="topbar-username">
+                <span>
+                    Welcome,  <span style={{ color: "black" }}> {username} </span>
+                </span>
+            </div>
                     {/* <!-- Dropdown - User Information --> */}
                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">

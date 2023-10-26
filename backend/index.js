@@ -8,7 +8,6 @@ import usersRoute from './routes/users.js';
 import hotelRoute from './routes/hotels.js';3
 import roomRoute from './routes/rooms.js';
 import bookingRoute from './routes/bookings.js';
-
 const app = express();
 dotenv.config();
 
@@ -24,6 +23,7 @@ const connect = async () => {
 mongoose.connection.on("disconnected", () => {
     console.log("MongoDB disconnected!");
 });
+
 
 // Middlewares
 app.use(cors({ 

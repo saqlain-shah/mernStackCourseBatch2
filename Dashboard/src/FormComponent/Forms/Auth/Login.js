@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 import { Container, Card, CardContent, TextField, Button, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ onLogin }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedInUser, setLoggedInUser] = useState(null); // State to store the logged-in user
     const Navigate = useNavigate();
-
     const handleLogin = async () => {
         const apiUrl = 'http://localhost:8000/api/auth/login/';
         const user = {
@@ -20,11 +18,10 @@ function Login() {
             const response = await axios.post(apiUrl, user, {
                 withCredentials: true,
             });
-
+    
             if (response.status === 200) {
-                // Set the logged-in user's name in state
-                setLoggedInUser(username);
-
+                onLogin(username); // Pass the username to the parent 
+                
                 alert("User login successful");
                 Navigate('/portal');
             }
@@ -32,6 +29,7 @@ function Login() {
             console.error(error);
         }
     };
+
 
     return (
         <Container
@@ -73,17 +71,7 @@ function Login() {
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                             </Grid>
-                            <Grid item xs={8}>
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    sx={{ borderRadius: '25px', ml: 10, mr: 5, mt: 5 }}
-                                    onClick={handleLogin}
-                                >
-                                    Login
-                                </Button>
-                            </Grid>
+                    
                             <Grid item xs={12}>
                                 <Typography variant="body2" align="center">
                                     Create an Account!

@@ -1,6 +1,20 @@
 #accordionSidebar{
-    background-color: rgb(26, 26, 100);
+    background-color: rgb(0, 0, 0);
 }
 .navbar{
     font-size: 10px;
 }
+
+.topbar-username {
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+    margin-left: -4px;
+}
+.topbar-username span {
+    display: flex;
+    align-items: center;
+    margin-top: -1px;
+    margin-right: 9px;
+}
+
