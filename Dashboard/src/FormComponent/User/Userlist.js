@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
-
+// import '../FormCSS/user.css'
 function Userlist() {
   const [userList, setUserList] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -59,22 +59,23 @@ function Userlist() {
 
   return (
     <>
-      <div className="d-sm-flex align-items-center justify-content-between mb-4">
+    <div  style={{backgroundColor:'lightgray'}}>
+      {/* <div className="d-sm-flex align-items-center justify-content-around mb-4">
         <h1 className="h3 mb-0 text-gray-800">User-List</h1>
         <Link to="/portal/create-user" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
           <FontAwesomeIcon icon={faUser} className="creatinguser mr-2" />
           Create User
         </Link>
-      </div>
-      <div style={{ height: 400, width: '100%' }}>
+      </div> */}
+      <div style={{ height: 400, width: '95%', margin:'auto', backgroundColor:'white', marginTop:'50'}}>
         <DataGrid
-          
           rows={userList}
           columns={columns}
           pageSize={5}
           loading={isLoading}
           getRowId={getRowId} 
         />
+      </div>
       </div>
     </>
   );

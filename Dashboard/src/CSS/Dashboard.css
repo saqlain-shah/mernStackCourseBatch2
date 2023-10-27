@@ -1,0 +1,89 @@
+/* Styling for the whole dashboard */
+.dashboard {
+    padding: 20px;
+  }
+  
+  /* Styling for the main title */
+  .dashboard h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Styling for the "Generate Report" button */
+  .generate-report-button {
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Styling for individual cards */
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .card-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  /* Styling for the Doughnut chart */
+  .doughnut-chart {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the Line chart */
+  .line-chart {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the chart titles */
+  .chart-title {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Styling for the chart legends */
+  .chart-legend {
+    font-size: 14px;
+  }
+  
+  /* Styling for the row containing cards */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive layout for small screens */
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+  

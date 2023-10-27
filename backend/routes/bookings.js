@@ -11,7 +11,7 @@ const router = express.Router();
 router.post("/", createBooking);
 
 // //Booking List
-router.get("/list", bookingList);
+router.get("/", bookingList);
 
 // //Search Booking By Id
 router.get("/search/:id",  bookingSearch);

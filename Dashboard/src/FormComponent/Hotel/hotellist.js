@@ -9,15 +9,14 @@ function HotelList() {
   const [hotelList, setHotelList] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  const apiUrl = 'http://localhost:8000/api/hotel/';
   useEffect(() => {
     getHotels();
   }, []);
 
-  let getHotels = async () => {
+  const getHotels = async () => {
     try {
-      const hotels = await axios.get(apiUrl, { withCredentials: true });
-      setHotelList(hotels.data);
+      const response = await axios.get('http://localhost:8000/api/hotel'); // Assuming you have set up your API route appropriately
+      setHotelList(response.data);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -33,9 +32,24 @@ function HotelList() {
     { field: 'address', headerName: 'Address', flex: 1 },
     { field: 'distance', headerName: 'Distance', flex: 1 },
     { field: 'title', headerName: 'Title', flex: 1 },
-    { field: 'desc', headerName: 'Description', flex: 1 },
     { field: 'cheapestPrice', headerName: 'Cheapest Price', flex: 1 },
-    { field: 'featured', headerName: 'Featured', flex: 1 },
+    {
+      field: 'rooms',
+      headerName: 'Rooms',
+      flex: 1,
+      valueGetter: (params) => params.row.rooms.join(', '),
+    },
+    {
+      field: 'photos',
+      headerName: 'Photos',
+      flex: 3,
+      renderCell: (params) => (
+        <div className="photo-cell">
+          
+        </div>
+      ),
+    },
+  
     {
       field: 'actions',
       headerName: 'Actions',
@@ -48,22 +62,19 @@ function HotelList() {
         </div>
       ),
     },
-  ]; 
+  ];
 
-  let handleDelete = async (id) => {
-    const deleteUrl = `${apiUrl}/${id}`; 
+  const handleDelete = async (id) => {
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete the data?");
       if (confirmDelete) {
-        await axios.delete(deleteUrl);
+        await axios.delete(`http://localhost:8000/api/hotel/${id}`); // Adjust the API route accordingly
         getHotels();
       }
     } catch (error) {
       console.error(error);
     }
   }
-  
-  
 
   return (
     <div className="hotel-list-container">
@@ -74,7 +85,7 @@ function HotelList() {
           Create Hotel
         </Link>
       </div>
-      <div className="data-grid">
+      <div className="data-grid" style={{ height: 400, width: '100%', margin:'auto', backgroundColor:'white', marginTop:'50'}}>
         <DataGrid
           rows={hotelList}
           columns={columns}
@@ -88,3 +99,7 @@ function HotelList() {
 }
 
 export default HotelList;
+
+
+
+

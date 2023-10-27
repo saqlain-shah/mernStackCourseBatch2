@@ -1,17 +1,17 @@
-import { faBell, faCircleUser, faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import { faBell, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Custom.css';
-function Topbar() {
+import pic from '../DashComponent/sad.jpg'
+
+function Topbar({username}) {
     return (
         <nav className="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow">
             {/* <!-- Sidebar Toggle (Topbar) --> */}
             <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
                 <FontAwesomeIcon icon={faBars} />
             </button>
-
             {/* <!-- Topbar Search --> */}
             <form
                 className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -25,7 +25,7 @@ function Topbar() {
                     </div>
                 </div>
             </form>
-
+          
             {/* <!-- Topbar Navbar --> */}
             <ul className="navbar-nav ml-auto">
 
@@ -171,14 +171,22 @@ function Topbar() {
                 </li>
 
                 <div className="topbar-divider d-none d-sm-block"></div>
-
+               
                 {/* <!-- Nav Item - User Information --> */}
                 <li className="nav-item dropdown no-arrow">
                     <Link className="nav-link dropdown-toggle" to="/" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span className="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        <FontAwesomeIcon icon={faCircleUser} size={"xl"} />
+                        <img
+                            style={{ height: '40px', borderRadius: '50%' }}
+                            src={pic} alt='logo'
+                        />
+                        {/* <FontAwesomeIcon icon={faCircleUser} size={"xl"} /> */}
                     </Link>
+                    <div className="topbar-username">
+                <span>
+                    Welcome,  <span style={{ color: "black" }}> {username} </span>
+                </span>
+            </div>
                     {/* <!-- Dropdown - User Information --> */}
                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">

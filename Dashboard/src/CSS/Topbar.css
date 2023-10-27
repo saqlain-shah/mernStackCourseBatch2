@@ -1,0 +1,116 @@
+/* Topbar Container */
+.topbar {
+  background-color: #fff;
+  height: 60px;
+  border-bottom: 1px solid #e3e6f0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Sidebar Toggle Button */
+#sidebarToggleTop {
+  color: #333;
+}
+
+/* Search Form */
+.navbar-search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-search .input-group {
+  width: 100%;
+}
+
+.navbar-search input {
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 16px;
+}
+
+.navbar-search button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 8px 15px;
+  font-size: 16px;
+}
+
+/* Nav Items */
+.nav-item {
+  margin-right: 10px;
+  position: relative;
+}
+
+/* FontAwesome Icons in Nav Items */
+.nav-item .fa-icon {
+  font-size: 20px;
+  margin-right: 5px;
+  color: #333;
+}
+
+/* Counter Badge */
+.nav-item .badge-counter {
+  background-color: #e74a3b;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 3px 7px;
+  position: absolute;
+  top: -5px;
+  right: 0;
+}
+
+/* User Dropdown */
+.nav-item:last-child {
+  position: relative;
+}
+
+/* User Image */
+.nav-item:last-child .fa-circle-user {
+  font-size: 30px;
+  margin-right: 10px;
+  color: #333;
+}
+
+/* User Name */
+.nav-item:last-child .text-gray-600 {
+  font-weight: 600;
+}
+
+/* User Dropdown Menu */
+.dropdown-menu {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* User Dropdown Menu Items */
+.dropdown-item {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* User Dropdown Divider */
+.dropdown-divider {
+  margin: 10px 0;
+}
+
+/* User Dropdown Icons */
+.dropdown-item i {
+  margin-right: 10px;
+  color: #333;
+}
+
+/* User Dropdown Logout Button */
+.dropdown-item:last-child {
+  background-color: #f8f9fc;
+  color: #333;
+}

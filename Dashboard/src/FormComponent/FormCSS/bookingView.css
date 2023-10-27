@@ -1,0 +1,35 @@
+/* BookingView.css */
+
+/* Center the content vertically and horizontally */
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Style the card containing booking details */
+  .Card {
+    max-width: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the card content */
+  .CardContent {
+    padding: 16px;
+    text-align: left;
+  }
+  
+  /* Style the typography elements */
+  .Typography {
+    margin-bottom: 16px;
+  }
+  
+  /* Style the CircularProgress component */
+  .CircularProgress {
+    margin: 16px;
+  }
+  

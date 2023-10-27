@@ -5,10 +5,9 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import authRoute from './routes/auth.js';
 import usersRoute from './routes/users.js';
-import hotelRoute from './routes/hotels.js';
+import hotelRoute from './routes/hotels.js';3
 import roomRoute from './routes/rooms.js';
 import bookingRoute from './routes/bookings.js';
-
 const app = express();
 dotenv.config();
 
@@ -25,8 +24,13 @@ mongoose.connection.on("disconnected", () => {
     console.log("MongoDB disconnected!");
 });
 
+
 // Middlewares
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ 
+    origin: 'http://localhost:3000',
+    credentials: true 
+  }));
+  
 app.use(cookieParser());
 app.use(express.json());
 
@@ -39,7 +43,7 @@ app.use((err, req, res, next) => {
 // Routes
 app.use('/api/auth', authRoute);
 app.use('/api/users', usersRoute);
-app.use('/api/hotel', hotelRoute);
+app.use('/api/hotel', hotelRoute);  
 app.use('/api/room', roomRoute);
 app.use('/api/booking', bookingRoute);
 
